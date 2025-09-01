@@ -1,0 +1,233 @@
+version: '3.8'
+
+services:
+  # ========================================
+  # FRONTEND (Next.js)
+  # ========================================
+  web:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile.prod
+    image: ghcr.io/seu-usuario/atendechat-web:latest
+    container_name: atendechat-web-prod
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_API_URL=https://api.seudominio.com
+    volumes:
+      - web-uploads:/app/uploads
+    networks:
+      - atendechat-network
+    depends_on:
+      - api
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # ========================================
+  # BACKEND (NestJS + Prisma)
+  # ========================================
+  api:
+    build:
+      context: ./apps/api
+      dockerfile: Dockerfile.prod
+    image: ghcr.io/seu-usuario/atendechat-api:latest
+    container_name: atendechat-api-prod
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    env_file:
+      - .env.production
+    volumes:
+      - api-uploads:/app/uploads
+      - api-logs:/app/logs
+    networks:
+      - atendechat-network
+    depends_on:
+      - redis
+    command: >
+      sh -c "
+        echo 'Executando migrações Prisma...' &&
+        pnpm prisma migrate deploy &&
+        echo 'Iniciando API...' &&
+        pnpm start:prod
+      "
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/v1/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # ========================================
+  # WORKER (BullMQ)
+  # ========================================
+  worker:
+    build:
+      context: ./apps/worker
+      dockerfile: Dockerfile.prod
+    image: ghcr.io/seu-usuario/atendechat-worker:latest
+    container_name: atendechat-worker-prod
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    env_file:
+      - .env.production
+    volumes:
+      - worker-logs:/app/logs
+    networks:
+      - atendechat-network
+    depends_on:
+      - redis
+      - api
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # ========================================
+  # REVERSE PROXY (Caddy)
+  # ========================================
+  caddy:
+    image: caddy:2-alpine
+    container_name: atendechat-caddy-prod
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./ops/caddy/Caddyfile:/etc/caddy/Caddyfile
+      - caddy-data:/data
+      - caddy-config:/config
+    networks:
+      - atendechat-network
+    depends_on:
+      - web
+      - api
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:2019/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ========================================
+  # REDIS (Cache + BullMQ)
+  # ========================================
+  redis:
+    image: redis:7-alpine
+    container_name: atendechat-redis-prod
+    restart: unless-stopped
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD}
+    volumes:
+      - redis-data:/data
+    networks:
+      - atendechat-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ========================================
+  # PROMETHEUS (Métricas)
+  # ========================================
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: atendechat-prometheus-prod
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./ops/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    networks:
+      - atendechat-network
+    depends_on:
+      - api
+      - worker
+
+  # ========================================
+  # GRAFANA (Dashboards)
+  # ========================================
+  grafana:
+    image: grafana/grafana:latest
+    container_name: atendechat-grafana-prod
+    restart: unless-stopped
+    ports:
+      - "3001:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin123
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./ops/grafana/provisioning:/etc/grafana/provisioning
+    networks:
+      - atendechat-network
+    depends_on:
+      - prometheus
+
+  # ========================================
+  # ALERTMANAGER (Alertas)
+  # ========================================
+  alertmanager:
+    image: prom/alertmanager:latest
+    container_name: atendechat-alertmanager-prod
+    restart: unless-stopped
+    ports:
+      - "9093:9093"
+    volumes:
+      - ./ops/alertmanager/alertmanager.yml:/etc/alertmanager/alertmanager.yml
+      - alertmanager-data:/alertmanager
+    command:
+      - '--config.file=/etc/alertmanager/alertmanager.yml'
+      - '--storage.path=/alertmanager'
+      - '--web.console.libraries=/etc/alertmanager/console_libraries'
+      - '--web.console.templates=/etc/alertmanager/consoles'
+    networks:
+      - atendechat-network
+
+  # ========================================
+  # UPTIME-KUMA (Monitoramento Externo)
+  # ========================================
+  uptime-kuma:
+    image: louislam/uptime-kuma:1
+    container_name: atendechat-uptime-prod
+    restart: unless-stopped
+    ports:
+      - "3002:3001"
+    volumes:
+      - uptime-data:/app/data
+    networks:
+      - atendechat-network
+
+volumes:
+  web-uploads:
+  api-uploads:
+  api-logs:
+  worker-logs:
+  redis-data:
+  caddy-data:
+  caddy-config:
+  prometheus-data:
+  grafana-data:
+  alertmanager-data:
+  uptime-data:
+
+networks:
+  atendechat-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

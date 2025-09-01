@@ -1,0 +1,119 @@
+groups:
+  - name: slos
+    rules:
+      # SLO: API Response Time P95 < 350ms
+      - alert: APIP95ResponseTimeHigh
+        expr: histogram_quantile(0.95, rate(http_request_duration_ms_bucket[5m])) > 0.35
+        for: 2m
+        labels:
+          severity: warning
+          slo: api_p95_response_time
+        annotations:
+          summary: "API P95 response time is above 350ms"
+          description: "API P95 response time is {{ $value }}ms, which is above the 350ms SLO threshold"
+          slo_target: "350ms"
+          current_value: "{{ $value }}ms"
+
+      # SLO: API Response Time P50 < 120ms
+      - alert: APIP50ResponseTimeHigh
+        expr: histogram_quantile(0.50, rate(http_request_duration_ms_bucket[5m])) > 0.12
+        for: 2m
+        labels:
+          severity: warning
+          slo: api_p50_response_time
+        annotations:
+          summary: "API P50 response time is above 120ms"
+          description: "API P50 response time is {{ $value }}ms, which is above the 120ms SLO threshold"
+          slo_target: "120ms"
+          current_value: "{{ $value }}ms"
+
+      # SLO: WebSocket Delivery P95 < 1s
+      - alert: WebSocketDeliveryP95High
+        expr: histogram_quantile(0.95, rate(ws_delivery_duration_ms_bucket[5m])) > 1
+        for: 2m
+        labels:
+          severity: warning
+          slo: websocket_delivery_p95
+        annotations:
+          summary: "WebSocket delivery P95 is above 1s"
+          description: "WebSocket delivery P95 is {{ $value }}ms, which is above the 1000ms SLO threshold"
+          slo_target: "1000ms"
+          current_value: "{{ $value }}ms"
+
+      # SLO: Queue Lag P95 < 1s
+      - alert: QueueLagP95High
+        expr: histogram_quantile(0.95, rate(queue_lag_ms_bucket[5m])) > 1
+        for: 2m
+        labels:
+          severity: warning
+          slo: queue_lag_p95
+        annotations:
+          summary: "Queue lag P95 is above 1s"
+          description: "Queue lag P95 is {{ $value }}ms, which is above the 1000ms SLO threshold"
+          slo_target: "1000ms"
+          current_value: "{{ $value }}ms"
+
+      # SLO: 5xx Error Rate < 0.5%
+      - alert: High5xxErrorRate
+        expr: rate(http_5xx_errors_total[5m]) / rate(http_requests_total[5m]) > 0.005
+        for: 2m
+        labels:
+          severity: critical
+          slo: error_rate_5xx
+        annotations:
+          summary: "5xx error rate is above 0.5%"
+          description: "5xx error rate is {{ $value | humanizePercentage }}, which is above the 0.5% SLO threshold"
+          slo_target: "0.5%"
+          current_value: "{{ $value | humanizePercentage }}"
+
+      # SLO: Stalled Jobs = 0
+      - alert: StalledJobsDetected
+        expr: increase(queue_jobs_stalled_total[5m]) > 0
+        for: 1m
+        labels:
+          severity: critical
+          slo: stalled_jobs
+        annotations:
+          summary: "Stalled jobs detected"
+          description: "{{ $value }} stalled jobs detected in the last 5 minutes, violating the 0 stalled jobs SLO"
+          slo_target: "0"
+          current_value: "{{ $value }}"
+
+  - name: slo_compliance
+    rules:
+      # Calcular compliance dos SLOs
+      - record: slo:api_p95_compliance
+        expr: |
+          histogram_quantile(0.95, rate(http_request_duration_ms_bucket[5m])) <= 0.35
+      
+      - record: slo:api_p50_compliance
+        expr: |
+          histogram_quantile(0.50, rate(http_request_duration_ms_bucket[5m])) <= 0.12
+      
+      - record: slo:websocket_delivery_compliance
+        expr: |
+          histogram_quantile(0.95, rate(ws_delivery_duration_ms_bucket[5m])) <= 1
+      
+      - record: slo:queue_lag_compliance
+        expr: |
+          histogram_quantile(0.95, rate(queue_lag_ms_bucket[5m])) <= 1
+      
+      - record: slo:error_rate_compliance
+        expr: |
+          rate(http_5xx_errors_total[5m]) / rate(http_requests_total[5m]) <= 0.005
+      
+      - record: slo:stalled_jobs_compliance
+        expr: |
+          increase(queue_jobs_stalled_total[5m]) == 0
+
+      # Compliance geral (média dos SLOs)
+      - record: slo:overall_compliance_ratio
+        expr: |
+          (
+            slo:api_p95_compliance +
+            slo:api_p50_compliance +
+            slo:websocket_delivery_compliance +
+            slo:queue_lag_compliance +
+            slo:error_rate_compliance +
+            slo:stalled_jobs_compliance
+          ) / 6

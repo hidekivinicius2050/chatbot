@@ -1,0 +1,32 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "incremental": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "@atendechat/core": ["../../packages/core/src"],
+      "@atendechat/providers": ["../../packages/providers/src"],
+      "@atendechat/config": ["../../packages/config/src"]
+    }
+  },
+  "include": ["src/compliance/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
+

@@ -1,0 +1,71 @@
+# ========================================
+# ATENDECHAT 2.0 - WORKER PRODUÇÃO
+# ========================================
+# Multi-stage build para otimizar tamanho da imagem
+
+# ========================================
+# STAGE 1: BUILD
+# ========================================
+FROM node:18-alpine AS builder
+
+# Instalar pnpm
+RUN npm install -g pnpm
+
+# Definir diretório de trabalho
+WORKDIR /app
+
+# Copiar arquivos de dependências
+COPY package.json pnpm-lock.yaml ./
+COPY apps/worker/package.json ./apps/worker/
+COPY pnpm-workspace.yaml ./
+
+# Instalar dependências
+RUN pnpm install --frozen-lockfile
+
+# Copiar código fonte
+COPY apps/worker ./apps/worker
+COPY packages ./packages
+
+# Build da aplicação
+WORKDIR /app/apps/worker
+RUN pnpm build
+
+# ========================================
+# STAGE 2: PRODUÇÃO
+# ========================================
+FROM node:18-alpine AS production
+
+# Instalar dependências necessárias
+RUN apk add --no-cache curl
+
+# Criar usuário não-root
+RUN addgroup -g 1001 -S nodejs
+RUN adduser -S worker -u 1001
+
+# Definir diretório de trabalho
+WORKDIR /app
+
+# Copiar arquivos necessários do builder
+COPY --from=builder --chown=worker:nodejs /app/apps/worker/dist ./dist
+COPY --from=builder --chown=worker:nodejs /app/apps/worker/node_modules ./node_modules
+COPY --from=builder --chown=worker:nodejs /app/apps/worker/package.json ./
+
+# Criar diretórios necessários
+RUN mkdir -p logs && chown worker:nodejs logs
+
+# Mudar para usuário não-root
+USER worker
+
+# Expor porta
+EXPOSE 8081
+
+# Variáveis de ambiente
+ENV NODE_ENV=production
+ENV PORT=8081
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+  CMD curl -f http://localhost:8081/health || exit 1
+
+# Comando de inicialização
+CMD ["node", "dist/main"]

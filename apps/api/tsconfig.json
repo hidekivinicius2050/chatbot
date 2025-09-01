@@ -1,0 +1,18 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "@atendechat/core": ["../../packages/core/src"],
+      "@atendechat/providers": ["../../packages/providers/src"],
+      "@atendechat/config": ["../../packages/config/src"]
+    },
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false
+  },
+  "include": ["src/**/*", "prisma/**/*"],
+  "exclude": ["node_modules", "dist"]
+}

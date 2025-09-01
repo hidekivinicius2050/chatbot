@@ -1,0 +1,720 @@
+2025-08-28T00:30:05.856635Z  WARN daemon_server: turborepo_lib::commands::daemon: daemon already running
+2025-08-28T00:30:18.704090Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T00:30:18.705069Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T00:30:27.064501Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T00:30:27.064547Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T00:30:27.097389Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T00:30:32.570026Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("_tmp_1984_25766fa0480daab8ecdb061249db6d18")}
+2025-08-28T00:30:32.570135Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-08-28T00:30:32.664776Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_1984_25766fa0480daab8ecdb061249db6d18")}
+2025-08-28T00:30:32.664880Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-08-28T00:30:48.572062Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\node_modules")}
+2025-08-28T00:30:48.572412Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T00:30:48.572734Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T00:30:48.759852Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages\\core\\node_modules"), AnchoredSystemPathBuf("apps\\api\\node_modules"), AnchoredSystemPathBuf("packages\\config\\node_modules"), AnchoredSystemPathBuf("apps\\web\\node_modules"), AnchoredSystemPathBuf("apps\\worker\\node_modules"), AnchoredSystemPathBuf("packages\\providers\\node_modules")}
+2025-08-28T00:30:48.759921Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/core"), path: AnchoredSystemPathBuf("packages\\core") }, WorkspacePackage { name: Other("@atendechat/worker"), path: AnchoredSystemPathBuf("apps\\worker") }, WorkspacePackage { name: Other("@atendechat/web"), path: AnchoredSystemPathBuf("apps\\web") }, WorkspacePackage { name: Other("@atendechat/config"), path: AnchoredSystemPathBuf("packages\\config") }, WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }, WorkspacePackage { name: Other("@atendechat/providers"), path: AnchoredSystemPathBuf("packages\\providers") }}))
+2025-08-28T00:30:48.867181Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T00:30:48.887813Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages\\core\\node_modules"), AnchoredSystemPathBuf("node_modules"), AnchoredSystemPathBuf("apps\\worker\\node_modules"), AnchoredSystemPathBuf("packages\\providers\\node_modules"), AnchoredSystemPathBuf("apps\\web\\node_modules"), AnchoredSystemPathBuf("packages\\config\\node_modules"), AnchoredSystemPathBuf("apps\\api\\node_modules")}
+2025-08-28T00:30:48.887938Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/worker"), path: AnchoredSystemPathBuf("apps\\worker") }, WorkspacePackage { name: Other("@atendechat/config"), path: AnchoredSystemPathBuf("packages\\config") }, WorkspacePackage { name: Other("@atendechat/web"), path: AnchoredSystemPathBuf("apps\\web") }, WorkspacePackage { name: Other("@atendechat/providers"), path: AnchoredSystemPathBuf("packages\\providers") }, WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }, WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }, WorkspacePackage { name: Other("@atendechat/core"), path: AnchoredSystemPathBuf("packages\\core") }}))
+2025-08-28T00:30:48.900413Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T00:30:48.900496Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T00:30:48.900545Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T00:30:48.916852Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T00:30:48.916945Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T00:30:48.916999Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T00:30:51.345779Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("node_modules"), AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("pnpm-lock.yaml.3932370682")}
+2025-08-28T00:30:51.345814Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-08-28T00:30:52.263326Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api"), AnchoredSystemPathBuf("apps\\api\\package.json"), AnchoredSystemPathBuf("apps\\api\\package.json.1420332957")}
+2025-08-28T00:30:52.263360Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T00:31:03.458862Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\prisma\\prisma.service.ts")}
+2025-08-28T00:31:03.458918Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T00:31:16.057548Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\prisma\\prisma.service.ts")}
+2025-08-28T00:31:16.057609Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T00:31:39.362139Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T00:31:39.362183Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T00:31:39.408452Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T00:31:43.769744Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T00:31:43.769783Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T00:31:43.785869Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T00:32:42.469013Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T00:32:42.469049Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T00:32:42.482671Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T00:32:46.063332Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T00:32:46.063375Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T00:32:46.112548Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T00:33:27.268670Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\prisma\\prisma.service.ts")}
+2025-08-28T00:33:27.268825Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T00:33:27.268937Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T00:34:18.870967Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\app.module.ts")}
+2025-08-28T00:34:18.871014Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T00:34:18.963599Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\app.module.ts")}
+2025-08-28T00:34:18.963723Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T00:34:18.963822Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T00:34:30.459142Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\prisma\\prisma.service.ts")}
+2025-08-28T00:34:30.459190Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T00:35:46.367775Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T00:35:46.367839Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T00:35:46.368055Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T00:35:49.661270Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T00:35:49.661304Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T00:35:49.684429Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T00:36:42.061102Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\app.module.ts"), AnchoredSystemPathBuf("apps\\api\\src\\prisma\\prisma.service.ts")}
+2025-08-28T00:36:42.061145Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T00:36:42.061229Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T00:43:49.660862Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\websocket\\websocket.module.ts")}
+2025-08-28T00:43:49.660931Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T00:44:08.168377Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\health\\health.controller.ts")}
+2025-08-28T00:44:08.168466Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T00:44:28.569900Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\health\\health.controller.ts")}
+2025-08-28T00:44:28.569956Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T00:44:51.255627Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T00:44:51.255662Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T00:44:51.256877Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T00:45:13.355238Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T00:45:13.355334Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T00:45:13.402008Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T00:45:45.256773Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T00:45:45.256834Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T00:45:45.305029Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T00:45:50.968687Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T00:45:50.968866Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T00:45:51.024682Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T00:46:08.465749Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T00:46:08.465799Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T00:46:08.465869Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T00:46:12.557951Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T00:46:12.558006Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T00:46:12.558110Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T00:50:18.961229Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\health\\health.controller.ts"), AnchoredSystemPathBuf("apps\\api\\src\\websocket\\websocket.module.ts")}
+2025-08-28T00:50:18.961396Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T00:50:18.994444Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:03:05.971302Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\websocket\\websocket.module.ts")}
+2025-08-28T01:03:05.971426Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:03:22.877921Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\auth.module.ts")}
+2025-08-28T01:03:22.877985Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:03:34.159545Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\auth.module.ts")}
+2025-08-28T01:03:34.159581Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:03:49.361652Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:03:49.361812Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:03:49.361938Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:04:03.859632Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:04:03.859939Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:04:03.910389Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:04:31.382787Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:04:31.517014Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:04:31.518390Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:04:39.363874Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:04:39.363925Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:04:39.364100Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:04:53.759269Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\health\\health.controller.ts")}
+2025-08-28T01:04:53.759324Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:05:10.557344Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:05:10.557372Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:05:10.557440Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:05:23.367034Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:05:23.367085Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:05:23.375096Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:05:45.267676Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\websocket\\websocket.module.ts"), AnchoredSystemPathBuf("apps\\api\\src\\auth\\auth.module.ts"), AnchoredSystemPathBuf("apps\\api\\src\\health\\health.controller.ts")}
+2025-08-28T01:05:45.267705Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:05:45.272541Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:09:16.071717Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\prisma\\schema.prisma")}
+2025-08-28T01:09:16.072043Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:09:29.471214Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_2996_b0228eb177e3e0659b0a7c54f4e30031")}
+2025-08-28T01:09:29.471256Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-08-28T01:09:43.616757Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("node_modules")}
+2025-08-28T01:09:43.616913Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-08-28T01:09:43.941617Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("node_modules")}
+2025-08-28T01:09:43.941648Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-08-28T01:09:44.259233Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("node_modules")}
+2025-08-28T01:09:44.259263Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-08-28T01:09:52.461379Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\node_modules")}
+2025-08-28T01:09:52.461422Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:09:52.489004Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:09:52.555515Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\web\\node_modules")}
+2025-08-28T01:09:52.555553Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2025-08-28T01:09:52.555625Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:09:52.656980Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages\\core\\node_modules"), AnchoredSystemPathBuf("apps\\worker\\node_modules")}
+2025-08-28T01:09:52.657019Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/core"), path: AnchoredSystemPathBuf("packages\\core") }, WorkspacePackage { name: Other("@atendechat/worker"), path: AnchoredSystemPathBuf("apps\\worker") }}))
+2025-08-28T01:09:52.673121Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:09:52.673171Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:09:52.756764Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages\\providers\\node_modules"), AnchoredSystemPathBuf("apps\\api\\node_modules"), AnchoredSystemPathBuf("packages\\config\\node_modules")}
+2025-08-28T01:09:52.756800Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/providers"), path: AnchoredSystemPathBuf("packages\\providers") }, WorkspacePackage { name: Other("@atendechat/config"), path: AnchoredSystemPathBuf("packages\\config") }, WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:09:52.756873Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:09:52.756910Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:09:52.960242Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:09:52.961529Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\worker\\node_modules"), AnchoredSystemPathBuf("packages\\providers\\node_modules"), AnchoredSystemPathBuf("apps\\api\\node_modules"), AnchoredSystemPathBuf("packages\\config\\node_modules"), AnchoredSystemPathBuf("node_modules"), AnchoredSystemPathBuf("apps\\web\\node_modules"), AnchoredSystemPathBuf("packages\\core\\node_modules")}
+2025-08-28T01:09:52.961554Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/worker"), path: AnchoredSystemPathBuf("apps\\worker") }, WorkspacePackage { name: Other("@atendechat/config"), path: AnchoredSystemPathBuf("packages\\config") }, WorkspacePackage { name: Other("@atendechat/web"), path: AnchoredSystemPathBuf("apps\\web") }, WorkspacePackage { name: Other("@atendechat/core"), path: AnchoredSystemPathBuf("packages\\core") }, WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }, WorkspacePackage { name: Other("@atendechat/providers"), path: AnchoredSystemPathBuf("packages\\providers") }, WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:09:52.966759Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:09:53.022391Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:09:53.146822Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:09:53.146970Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:09:53.146993Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:09:53.147071Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:10:00.271753Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml.1742288630")}
+2025-08-28T01:10:00.271845Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-08-28T01:10:00.366342Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("pnpm-lock.yaml.1742288630"), AnchoredSystemPathBuf("node_modules")}
+2025-08-28T01:10:00.366383Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-08-28T01:10:03.067635Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\package.json"), AnchoredSystemPathBuf("apps\\api\\package.json.1193467513"), AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:10:03.067678Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:10:27.970561Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\prisma\\seed.ts")}
+2025-08-28T01:10:27.970604Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:10:51.569965Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\prisma\\prisma.service.ts")}
+2025-08-28T01:10:51.570086Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:11:11.458044Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\prisma\\prisma.service.ts")}
+2025-08-28T01:11:11.458083Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:11:26.670838Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\dto\\login.dto.ts")}
+2025-08-28T01:11:26.670869Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:11:38.657824Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\dto\\refresh.dto.ts"), AnchoredSystemPathBuf("apps\\api\\src\\auth\\dto")}
+2025-08-28T01:11:38.657865Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:11:40.666381Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\dto\\refresh.dto.ts")}
+2025-08-28T01:11:40.666421Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:11:54.060113Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\dto\\logout.dto.ts"), AnchoredSystemPathBuf("apps\\api\\src\\auth\\dto")}
+2025-08-28T01:11:54.060220Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:11:56.665797Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\dto\\logout.dto.ts")}
+2025-08-28T01:11:56.665886Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:12:25.994956Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\auth.service.ts")}
+2025-08-28T01:12:25.995383Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:12:49.662286Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\auth.controller.ts")}
+2025-08-28T01:12:49.662329Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:13:11.306515Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\strategies\\jwt.strategy.ts")}
+2025-08-28T01:13:11.306621Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:13:25.268141Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\guards"), AnchoredSystemPathBuf("apps\\api\\src\\auth\\guards\\roles.guard.ts")}
+2025-08-28T01:13:25.268166Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:13:27.072673Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\guards\\roles.guard.ts")}
+2025-08-28T01:13:27.072710Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:14:04.769904Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\auth.controller.ts")}
+2025-08-28T01:14:04.770016Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:14:17.356886Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\auth.controller.ts")}
+2025-08-28T01:14:17.356926Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:14:17.487302Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\auth.controller.ts")}
+2025-08-28T01:14:17.487382Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:14:17.487471Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:14:30.463843Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\auth.controller.ts")}
+2025-08-28T01:14:30.463953Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:14:48.978931Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\auth.controller.ts")}
+2025-08-28T01:14:48.978987Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:15:08.371102Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\auth.module.ts")}
+2025-08-28T01:15:08.371152Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:15:19.562572Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\auth.module.ts")}
+2025-08-28T01:15:19.562638Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:15:50.862068Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:15:50.862096Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:15:50.862142Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:16:09.764485Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:16:09.764620Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:16:09.769275Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:16:32.960996Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\prisma\\schema.prisma")}
+2025-08-28T01:16:32.961317Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:16:59.357867Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:16:59.357922Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:16:59.369214Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:17:14.566266Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:17:14.566308Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:17:14.628737Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:17:23.175976Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\prisma\\seed.ts")}
+2025-08-28T01:17:23.176193Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:17:36.059779Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\prisma\\seed.ts")}
+2025-08-28T01:17:36.059824Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:17:48.859314Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\guards\\roles.guard.ts")}
+2025-08-28T01:17:48.859447Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:18:17.757123Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:18:17.757164Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:18:17.771892Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:18:31.857486Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:18:31.857568Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:18:31.884636Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:18:40.761155Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\guards\\roles.guard.ts")}
+2025-08-28T01:18:40.761213Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:18:52.264268Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth"), AnchoredSystemPathBuf("apps\\api\\src\\auth\\auth.service.spec.ts")}
+2025-08-28T01:18:52.264428Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:18:59.129252Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\strategies\\local.strategy.ts"), AnchoredSystemPathBuf("apps\\api\\src\\auth\\strategies")}
+2025-08-28T01:18:59.129632Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:19:29.870514Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:19:29.870577Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:19:29.870733Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:19:43.467218Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:19:43.467267Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:19:43.495278Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:21:25.756029Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth"), AnchoredSystemPathBuf("apps\\api\\src\\auth\\auth.service.spec.ts")}
+2025-08-28T01:21:25.756104Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:21:28.572844Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\auth.service.spec.ts")}
+2025-08-28T01:21:28.572994Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:22:40.672729Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api"), AnchoredSystemPathBuf("apps\\api\\coverage")}
+2025-08-28T01:22:40.672877Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:22:40.673078Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:22:40.786729Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\coverage")}
+2025-08-28T01:22:40.786769Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:22:41.182318Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:22:41.184429Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\coverage")}
+2025-08-28T01:22:41.184476Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:22:41.184595Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:22:54.068899Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\auth.service.spec.ts")}
+2025-08-28T01:22:54.068984Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:23:07.857348Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\auth.service.spec.ts")}
+2025-08-28T01:23:07.857395Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:23:57.068009Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\auth.service.spec.ts")}
+2025-08-28T01:23:57.068064Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:24:12.569303Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\auth.service.spec.ts")}
+2025-08-28T01:24:12.569369Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:24:26.758257Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\auth.service.spec.ts")}
+2025-08-28T01:24:26.758300Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:25:41.796864Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:25:41.797070Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:25:41.847784Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:25:53.459818Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:25:53.459874Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:25:53.463989Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:27:41.963188Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:27:41.963220Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:27:41.963291Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:27:56.359454Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:27:56.359530Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:27:56.380877Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:29:21.264518Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\auth.module.ts"), AnchoredSystemPathBuf("apps\\api\\src\\auth\\auth.controller.ts"), AnchoredSystemPathBuf("apps\\api\\prisma\\seed.ts"), AnchoredSystemPathBuf("apps\\api\\src\\auth\\auth.service.ts"), AnchoredSystemPathBuf("apps\\api\\src\\auth\\guards\\roles.guard.ts"), AnchoredSystemPathBuf("apps\\api\\src\\auth\\strategies\\jwt.strategy.ts"), AnchoredSystemPathBuf("apps\\api\\src\\auth\\auth.service.spec.ts"), AnchoredSystemPathBuf("apps\\api\\src\\prisma\\prisma.service.ts"), AnchoredSystemPathBuf("apps\\api\\src\\auth\\dto\\logout.dto.ts"), AnchoredSystemPathBuf("apps\\api\\src\\auth\\dto\\login.dto.ts"), AnchoredSystemPathBuf("apps\\api\\prisma\\schema.prisma"), AnchoredSystemPathBuf("apps\\api\\src\\auth\\dto\\refresh.dto.ts")}
+2025-08-28T01:29:21.264584Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:29:21.264981Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:33:09.063751Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:33:09.063893Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:33:09.064304Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:33:12.656296Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:33:12.656331Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:33:12.672731Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:39:33.867554Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\prisma"), AnchoredSystemPathBuf("apps\\api\\src\\prisma\\tenant.interceptor.ts")}
+2025-08-28T01:39:33.867602Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:39:37.466248Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\prisma\\tenant.interceptor.ts")}
+2025-08-28T01:39:37.466482Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:40:06.969106Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\prisma\\prisma.service.ts")}
+2025-08-28T01:40:06.969144Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:40:25.660760Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\strategies\\jwt.strategy.ts")}
+2025-08-28T01:40:25.660799Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:40:42.371895Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\auth.module.ts")}
+2025-08-28T01:40:42.371932Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:41:24.758330Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:41:24.758381Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:41:24.758462Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:41:39.067028Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:41:39.067082Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:41:39.067177Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:43:17.776853Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:43:17.776904Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:43:17.889082Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:43:26.760913Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:43:26.760992Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:43:26.852282Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:44:15.869902Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:44:15.869943Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:44:15.870022Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:44:20.164161Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:44:20.164193Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:44:20.184450Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:45:12.959520Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\auth\\auth.module.ts"), AnchoredSystemPathBuf("apps\\api\\src\\prisma\\tenant.interceptor.ts"), AnchoredSystemPathBuf("apps\\api\\src\\prisma\\prisma.service.ts"), AnchoredSystemPathBuf("apps\\api\\src\\auth\\strategies\\jwt.strategy.ts")}
+2025-08-28T01:45:12.959551Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:45:12.959624Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:46:40.871575Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:46:40.871791Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:46:40.872092Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:46:54.059711Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:46:54.059752Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:46:54.067377Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:48:49.161103Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:48:49.161127Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:48:49.161168Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:49:02.561727Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:49:02.561899Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:49:02.562085Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:53:40.362272Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:53:40.362306Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:53:40.362343Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:53:58.256503Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:53:58.256545Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:53:58.260924Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:54:48.960778Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:54:48.960836Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:54:48.975961Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:54:55.564685Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T01:54:55.564718Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:54:55.610832Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T01:57:47.867608Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\prisma\\schema.prisma")}
+2025-08-28T01:57:47.867664Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:58:22.362883Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\prisma\\schema.prisma")}
+2025-08-28T01:58:22.362918Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:59:00.567648Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\tickets\\dto\\create-ticket.dto.ts"), AnchoredSystemPathBuf("apps\\api\\src\\tickets"), AnchoredSystemPathBuf("apps\\api\\src\\tickets\\dto")}
+2025-08-28T01:59:00.567681Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:59:02.764682Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\tickets\\dto\\create-ticket.dto.ts")}
+2025-08-28T01:59:02.764742Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:59:15.666038Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\tickets\\dto\\update-ticket.dto.ts"), AnchoredSystemPathBuf("apps\\api\\src\\tickets\\dto")}
+2025-08-28T01:59:15.666065Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:59:18.060885Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\tickets\\dto\\update-ticket.dto.ts")}
+2025-08-28T01:59:18.061101Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:59:33.367369Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\tickets\\dto"), AnchoredSystemPathBuf("apps\\api\\src\\tickets\\dto\\query-tickets.dto.ts")}
+2025-08-28T01:59:33.367411Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:59:35.561634Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\tickets\\dto\\query-tickets.dto.ts")}
+2025-08-28T01:59:35.561664Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:59:48.957621Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src"), AnchoredSystemPathBuf("apps\\api\\src\\messages\\dto\\create-message.dto.ts"), AnchoredSystemPathBuf("apps\\api\\src\\messages"), AnchoredSystemPathBuf("apps\\api\\src\\messages\\dto")}
+2025-08-28T01:59:48.957650Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T01:59:51.458760Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messages\\dto\\create-message.dto.ts")}
+2025-08-28T01:59:51.458787Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:00:04.664099Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messages\\dto"), AnchoredSystemPathBuf("apps\\api\\src\\messages\\dto\\query-messages.dto.ts")}
+2025-08-28T02:00:04.664144Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:00:07.456816Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messages\\dto\\query-messages.dto.ts")}
+2025-08-28T02:00:07.456846Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:00:34.061760Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\tickets\\tickets.service.ts"), AnchoredSystemPathBuf("apps\\api\\src\\tickets")}
+2025-08-28T02:00:34.061843Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:00:36.867187Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\tickets\\tickets.service.ts")}
+2025-08-28T02:00:36.867221Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:00:59.366463Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messages\\messages.service.ts"), AnchoredSystemPathBuf("apps\\api\\src\\messages")}
+2025-08-28T02:00:59.366500Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:01:02.568367Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messages\\messages.service.ts")}
+2025-08-28T02:01:02.568406Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:01:29.761604Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\tickets\\tickets.controller.ts")}
+2025-08-28T02:01:29.761658Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:01:51.766918Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messages\\messages.controller.ts"), AnchoredSystemPathBuf("apps\\api\\src\\messages")}
+2025-08-28T02:01:51.766984Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:01:54.561753Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messages\\messages.controller.ts")}
+2025-08-28T02:01:54.561870Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:02:11.659816Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\upload\\upload.service.ts"), AnchoredSystemPathBuf("apps\\api\\src\\upload")}
+2025-08-28T02:02:11.659859Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:02:14.272591Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\upload\\upload.service.ts")}
+2025-08-28T02:02:14.272903Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:02:33.263709Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\upload\\upload.controller.ts")}
+2025-08-28T02:02:33.263788Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:02:46.269240Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\tickets\\tickets.module.ts")}
+2025-08-28T02:02:46.269276Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:02:57.456185Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messages\\messages.module.ts"), AnchoredSystemPathBuf("apps\\api\\src\\messages")}
+2025-08-28T02:02:57.456225Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:03:00.165539Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messages\\messages.module.ts")}
+2025-08-28T02:03:00.165646Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:03:12.762040Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\upload\\upload.module.ts")}
+2025-08-28T02:03:12.762097Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:03:35.062480Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\app.module.ts")}
+2025-08-28T02:03:35.062610Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:04:16.166739Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\prisma\\seed.ts")}
+2025-08-28T02:04:16.166869Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:04:46.060106Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T02:04:46.060143Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:04:46.060257Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:05:02.058596Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T02:05:02.058647Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:05:02.125802Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:05:10.667650Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_2484_995172ac88aa8798fab8879ce7ca8bbf")}
+2025-08-28T02:05:10.667684Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-08-28T02:05:23.666765Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("node_modules")}
+2025-08-28T02:05:23.666810Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-08-28T02:05:23.761169Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("node_modules")}
+2025-08-28T02:05:23.761193Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-08-28T02:05:24.059200Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("node_modules")}
+2025-08-28T02:05:24.059238Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-08-28T02:05:25.963357Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\node_modules")}
+2025-08-28T02:05:25.963414Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:05:26.102597Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:05:26.103857Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages\\providers\\node_modules"), AnchoredSystemPathBuf("apps\\worker\\node_modules"), AnchoredSystemPathBuf("apps\\web\\node_modules"), AnchoredSystemPathBuf("apps\\api\\node_modules"), AnchoredSystemPathBuf("node_modules"), AnchoredSystemPathBuf("packages\\config\\node_modules"), AnchoredSystemPathBuf("packages\\core\\node_modules")}
+2025-08-28T02:05:26.103880Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }, WorkspacePackage { name: Other("@atendechat/core"), path: AnchoredSystemPathBuf("packages\\core") }, WorkspacePackage { name: Other("@atendechat/worker"), path: AnchoredSystemPathBuf("apps\\worker") }, WorkspacePackage { name: Other("@atendechat/providers"), path: AnchoredSystemPathBuf("packages\\providers") }, WorkspacePackage { name: Other("@atendechat/config"), path: AnchoredSystemPathBuf("packages\\config") }, WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }, WorkspacePackage { name: Other("@atendechat/web"), path: AnchoredSystemPathBuf("apps\\web") }}))
+2025-08-28T02:05:26.104085Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:05:26.143062Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:05:26.184440Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:05:26.184483Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:05:26.184514Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:05:26.199415Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:05:26.200002Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages\\config\\node_modules"), AnchoredSystemPathBuf("apps\\web\\node_modules"), AnchoredSystemPathBuf("apps\\worker\\node_modules"), AnchoredSystemPathBuf("packages\\core\\node_modules"), AnchoredSystemPathBuf("packages\\providers\\node_modules")}
+2025-08-28T02:05:26.200021Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/worker"), path: AnchoredSystemPathBuf("apps\\worker") }, WorkspacePackage { name: Other("@atendechat/providers"), path: AnchoredSystemPathBuf("packages\\providers") }, WorkspacePackage { name: Other("@atendechat/core"), path: AnchoredSystemPathBuf("packages\\core") }, WorkspacePackage { name: Other("@atendechat/web"), path: AnchoredSystemPathBuf("apps\\web") }, WorkspacePackage { name: Other("@atendechat/config"), path: AnchoredSystemPathBuf("packages\\config") }}))
+2025-08-28T02:05:26.200074Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:05:26.200102Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:05:26.200129Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:05:26.200162Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:05:26.200191Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:05:28.368797Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("pnpm-lock.yaml.1045431905"), AnchoredSystemPathBuf("node_modules")}
+2025-08-28T02:05:28.368843Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-08-28T02:05:29.159711Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\package.json"), AnchoredSystemPathBuf("apps\\api"), AnchoredSystemPathBuf("apps\\api\\package.json.1563937377")}
+2025-08-28T02:05:29.159741Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:05:37.468269Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\uploads"), AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T02:05:37.468303Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:05:37.468385Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:05:46.867544Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\tickets\\tickets.service.ts")}
+2025-08-28T02:05:46.867578Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:06:14.456842Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\tickets\\tickets.service.ts")}
+2025-08-28T02:06:14.456889Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:06:29.259339Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messages\\messages.service.ts")}
+2025-08-28T02:06:29.259420Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:06:53.967253Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messages\\messages.service.ts")}
+2025-08-28T02:06:53.967287Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:07:07.565553Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_22084_fb219bde0653bd9d149dc1c258692489")}
+2025-08-28T02:07:07.565636Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-08-28T02:07:19.077638Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("node_modules")}
+2025-08-28T02:07:19.077699Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-08-28T02:07:19.167266Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("node_modules")}
+2025-08-28T02:07:19.167297Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-08-28T02:07:19.557637Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("node_modules")}
+2025-08-28T02:07:19.557770Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-08-28T02:07:20.967642Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\node_modules")}
+2025-08-28T02:07:20.967683Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:07:21.167649Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:07:21.182359Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\node_modules"), AnchoredSystemPathBuf("node_modules"), AnchoredSystemPathBuf("packages\\core\\node_modules"), AnchoredSystemPathBuf("apps\\worker\\node_modules"), AnchoredSystemPathBuf("packages\\config\\node_modules"), AnchoredSystemPathBuf("packages\\providers\\node_modules"), AnchoredSystemPathBuf("apps\\web\\node_modules")}
+2025-08-28T02:07:21.182400Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/worker"), path: AnchoredSystemPathBuf("apps\\worker") }, WorkspacePackage { name: Other("@atendechat/web"), path: AnchoredSystemPathBuf("apps\\web") }, WorkspacePackage { name: Other("@atendechat/config"), path: AnchoredSystemPathBuf("packages\\config") }, WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }, WorkspacePackage { name: Other("@atendechat/providers"), path: AnchoredSystemPathBuf("packages\\providers") }, WorkspacePackage { name: Other("@atendechat/core"), path: AnchoredSystemPathBuf("packages\\core") }, WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:07:21.632656Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:07:21.633730Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:07:21.633789Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:07:21.633826Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:07:21.633848Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:07:21.681611Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:07:23.559469Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml.3233672643")}
+2025-08-28T02:07:23.559519Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-08-28T02:07:23.667652Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("node_modules"), AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("pnpm-lock.yaml.3233672643")}
+2025-08-28T02:07:23.667676Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-08-28T02:07:24.277414Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\package.json.3531734355"), AnchoredSystemPathBuf("apps\\api"), AnchoredSystemPathBuf("apps\\api\\package.json")}
+2025-08-28T02:07:24.277459Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:07:41.962743Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T02:07:41.962762Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:07:41.968458Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:08:01.271124Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T02:08:01.271170Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:08:01.328272Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:08:12.857475Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\tickets\\tickets.service.ts")}
+2025-08-28T02:08:12.857601Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:08:49.255841Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\tickets\\tickets.service.ts")}
+2025-08-28T02:08:49.255980Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:09:04.968351Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messages\\messages.service.ts")}
+2025-08-28T02:09:04.968422Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:09:32.069619Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messages\\messages.service.ts")}
+2025-08-28T02:09:32.069651Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:09:46.863335Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T02:09:46.863360Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:09:46.863425Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:10:03.269804Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T02:10:03.269870Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:10:03.297277Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:12:48.961734Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\tickets\\dto\\update-ticket.dto.ts"), AnchoredSystemPathBuf("apps\\api\\src\\messages\\messages.service.ts"), AnchoredSystemPathBuf("apps\\api\\src\\tickets\\tickets.controller.ts"), AnchoredSystemPathBuf("apps\\api\\src\\upload\\upload.module.ts"), AnchoredSystemPathBuf("apps\\api\\prisma\\schema.prisma"), AnchoredSystemPathBuf("apps\\api\\prisma\\seed.ts"), AnchoredSystemPathBuf("apps\\api\\src\\app.module.ts"), AnchoredSystemPathBuf("apps\\api\\src\\tickets\\dto\\query-tickets.dto.ts"), AnchoredSystemPathBuf("apps\\api\\src\\messages\\dto\\create-message.dto.ts"), AnchoredSystemPathBuf("apps\\api\\src\\messages\\messages.controller.ts"), AnchoredSystemPathBuf("apps\\api\\src\\messages\\dto\\query-messages.dto.ts"), AnchoredSystemPathBuf("apps\\api\\src\\tickets\\tickets.module.ts"), AnchoredSystemPathBuf("apps\\api\\src\\tickets\\tickets.service.ts"), AnchoredSystemPathBuf("apps\\api\\src\\tickets\\dto\\create-ticket.dto.ts"), AnchoredSystemPathBuf("apps\\api\\src\\upload\\upload.service.ts"), AnchoredSystemPathBuf("apps\\api\\src\\messages\\messages.module.ts"), AnchoredSystemPathBuf("apps\\api\\src\\upload\\upload.controller.ts")}
+2025-08-28T02:12:48.961775Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:12:49.019827Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:13:31.572313Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messages\\messages.service.ts")}
+2025-08-28T02:13:31.572355Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:13:31.572492Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:13:42.765235Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("jest.config.js")}
+2025-08-28T02:13:42.765283Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-08-28T02:20:45.760489Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\prisma\\schema.prisma")}
+2025-08-28T02:20:45.760584Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:21:05.256941Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\prisma\\schema.prisma")}
+2025-08-28T02:21:05.257092Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:23:13.956667Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\channels\\channels.module.ts")}
+2025-08-28T02:23:13.956723Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:23:30.356528Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\channels\\dto\\create-channel.dto.ts"), AnchoredSystemPathBuf("apps\\api\\src\\channels"), AnchoredSystemPathBuf("apps\\api\\src\\channels\\dto")}
+2025-08-28T02:23:30.356597Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:23:33.256170Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\channels\\dto\\create-channel.dto.ts")}
+2025-08-28T02:23:33.256199Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:23:48.265344Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\channels\\dto"), AnchoredSystemPathBuf("apps\\api\\src\\channels\\dto\\update-channel.dto.ts")}
+2025-08-28T02:23:48.265462Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:23:52.058400Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\channels\\dto\\update-channel.dto.ts")}
+2025-08-28T02:23:52.058428Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:24:17.664309Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\channels\\dto\\query-channels.dto.ts"), AnchoredSystemPathBuf("apps\\api\\src\\channels\\dto")}
+2025-08-28T02:24:17.664475Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:24:21.872523Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\channels\\dto\\query-channels.dto.ts")}
+2025-08-28T02:24:21.872558Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:24:52.470615Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\channels"), AnchoredSystemPathBuf("apps\\api\\src\\channels\\channels.service.ts")}
+2025-08-28T02:24:52.470833Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:24:57.059622Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\channels\\channels.service.ts")}
+2025-08-28T02:24:57.059674Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:25:38.962816Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\channels\\channels.controller.ts")}
+2025-08-28T02:25:38.962859Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:26:06.997994Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\channels\\channels.controller.ts")}
+2025-08-28T02:26:06.998110Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:26:23.960357Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\channels\\channels.controller.ts")}
+2025-08-28T02:26:23.960400Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:26:37.760294Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\channels\\channels.controller.ts")}
+2025-08-28T02:26:37.760405Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:26:54.862445Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\channels\\channels.controller.ts")}
+2025-08-28T02:26:54.862496Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:27:16.195158Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\channels\\channels.controller.ts")}
+2025-08-28T02:27:16.195207Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:27:37.056020Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src"), AnchoredSystemPathBuf("apps\\api\\src\\webhooks"), AnchoredSystemPathBuf("apps\\api\\src\\webhooks\\webhooks.module.ts")}
+2025-08-28T02:27:37.056094Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:27:40.361267Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\webhooks\\webhooks.module.ts")}
+2025-08-28T02:27:40.361332Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:28:21.663955Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\webhooks\\webhooks.service.ts"), AnchoredSystemPathBuf("apps\\api\\src\\webhooks")}
+2025-08-28T02:28:21.663994Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:28:24.566211Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\webhooks\\webhooks.service.ts")}
+2025-08-28T02:28:24.566307Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:28:48.259513Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\webhooks"), AnchoredSystemPathBuf("apps\\api\\src\\webhooks\\webhooks.controller.ts")}
+2025-08-28T02:28:48.259692Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:28:50.859912Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\webhooks\\webhooks.controller.ts")}
+2025-08-28T02:28:50.860003Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:29:06.767138Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging"), AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.module.ts"), AnchoredSystemPathBuf("apps\\api\\src")}
+2025-08-28T02:29:06.767178Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:29:11.160540Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.module.ts")}
+2025-08-28T02:29:11.160595Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:29:32.066711Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\dto\\send-message.dto.ts"), AnchoredSystemPathBuf("apps\\api\\src\\messaging"), AnchoredSystemPathBuf("apps\\api\\src\\messaging\\dto")}
+2025-08-28T02:29:32.066746Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:29:36.365821Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\dto\\send-message.dto.ts")}
+2025-08-28T02:29:36.365864Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:30:13.555325Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging"), AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.service.ts")}
+2025-08-28T02:30:13.555354Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:30:16.157187Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.service.ts")}
+2025-08-28T02:30:16.157323Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:30:37.262480Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.controller.ts"), AnchoredSystemPathBuf("apps\\api\\src\\messaging")}
+2025-08-28T02:30:37.262544Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:30:39.756140Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.controller.ts")}
+2025-08-28T02:30:39.756179Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:30:55.763933Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\app.module.ts")}
+2025-08-28T02:30:55.763991Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:31:09.979656Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\app.module.ts")}
+2025-08-28T02:31:09.979687Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:31:33.158603Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messages\\messages.service.ts")}
+2025-08-28T02:31:33.158726Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:31:48.567172Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messages\\messages.service.ts")}
+2025-08-28T02:31:48.567210Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:32:04.665403Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\channels\\dto\\update-channel.dto.ts"), AnchoredSystemPathBuf("apps\\api\\src\\channels\\dto\\create-channel.dto.ts"), AnchoredSystemPathBuf("apps\\api\\prisma\\schema.prisma"), AnchoredSystemPathBuf("apps\\api\\src\\channels\\channels.module.ts")}
+2025-08-28T02:32:04.665650Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:32:04.721418Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:32:04.760603Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messages\\messages.service.ts"), AnchoredSystemPathBuf("apps\\api\\src\\channels\\channels.service.ts"), AnchoredSystemPathBuf("apps\\api\\src\\channels\\channels.controller.ts"), AnchoredSystemPathBuf("apps\\api\\src\\webhooks\\webhooks.controller.ts"), AnchoredSystemPathBuf("apps\\api\\src\\webhooks\\webhooks.service.ts"), AnchoredSystemPathBuf("apps\\api\\src\\channels\\dto\\query-channels.dto.ts"), AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.module.ts"), AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.service.ts"), AnchoredSystemPathBuf("apps\\api\\src\\app.module.ts"), AnchoredSystemPathBuf("apps\\api\\src\\channels\\dto\\create-channel.dto.ts"), AnchoredSystemPathBuf("apps\\api\\src\\messaging\\dto\\send-message.dto.ts"), AnchoredSystemPathBuf("apps\\api\\src\\channels\\channels.module.ts"), AnchoredSystemPathBuf("apps\\api\\src\\channels\\dto\\update-channel.dto.ts"), AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.controller.ts"), AnchoredSystemPathBuf("apps\\api\\src\\webhooks\\webhooks.module.ts")}
+2025-08-28T02:32:04.760709Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:32:04.760799Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:33:06.055750Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messages\\dto\\create-message.dto.ts")}
+2025-08-28T02:33:06.055877Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:33:29.355841Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messages\\messages.service.ts")}
+2025-08-28T02:33:29.355912Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:33:45.368883Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\webhooks\\webhooks.service.ts")}
+2025-08-28T02:33:45.369129Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:34:28.669475Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T02:34:28.669520Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:34:28.691306Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:34:47.365593Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T02:34:47.365630Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:34:47.411149Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:34:57.061097Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\channels\\channels.service.ts")}
+2025-08-28T02:34:57.061188Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:35:12.675136Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messages\\messages.controller.ts")}
+2025-08-28T02:35:12.675856Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:35:31.987318Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messages\\messages.service.ts")}
+2025-08-28T02:35:31.987356Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:35:46.476210Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.service.ts")}
+2025-08-28T02:35:46.476256Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:36:03.459103Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.service.ts")}
+2025-08-28T02:36:03.459140Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:36:19.062160Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.service.ts")}
+2025-08-28T02:36:19.062196Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:36:34.767242Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.service.ts")}
+2025-08-28T02:36:34.767270Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:36:49.765820Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.service.ts")}
+2025-08-28T02:36:49.765890Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:37:07.756791Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\webhooks\\webhooks.service.ts")}
+2025-08-28T02:37:07.756847Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:37:36.759372Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\dto\\send-message.dto.ts")}
+2025-08-28T02:37:36.759411Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:37:52.159706Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.service.ts")}
+2025-08-28T02:37:52.159773Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:37:52.260039Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.service.ts")}
+2025-08-28T02:37:52.260095Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:37:52.260264Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:38:10.173188Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.service.ts")}
+2025-08-28T02:38:10.173304Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:38:36.770319Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.service.ts")}
+2025-08-28T02:38:36.770359Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:39:41.557814Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T02:39:41.557887Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:39:41.558043Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:39:59.158807Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T02:39:59.158858Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:39:59.219300Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:40:13.357322Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\webhooks\\webhooks.service.ts")}
+2025-08-28T02:40:13.357368Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:42:31.663566Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T02:42:31.663705Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:42:31.663940Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T02:42:48.767863Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T02:42:48.767893Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T02:42:48.767972Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T03:11:06.365111Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\channels\\channels.service.ts"), AnchoredSystemPathBuf("apps\\api\\src\\messages\\dto\\create-message.dto.ts"), AnchoredSystemPathBuf("apps\\api\\src\\messages\\messages.service.ts"), AnchoredSystemPathBuf("apps\\api\\src\\messages\\messages.controller.ts"), AnchoredSystemPathBuf("apps\\api\\src\\messaging\\dto\\send-message.dto.ts"), AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.service.ts"), AnchoredSystemPathBuf("apps\\api\\src\\webhooks\\webhooks.service.ts")}
+2025-08-28T03:11:06.365174Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T03:11:06.423694Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T03:15:52.460310Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("env.example")}
+2025-08-28T03:15:52.460352Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-08-28T03:16:17.856873Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("README.md")}
+2025-08-28T03:16:17.856901Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-08-28T03:16:37.255842Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages\\config\\src\\index.ts")}
+2025-08-28T03:16:37.256537Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/config"), path: AnchoredSystemPathBuf("packages\\config") }}))
+2025-08-28T03:16:53.566617Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages\\config\\src\\index.ts")}
+2025-08-28T03:16:53.566766Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/config"), path: AnchoredSystemPathBuf("packages\\config") }}))
+2025-08-28T03:17:07.364684Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages\\config\\src\\index.ts")}
+2025-08-28T03:17:07.364715Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/config"), path: AnchoredSystemPathBuf("packages\\config") }}))
+2025-08-28T03:20:48.169525Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\test\\app.e2e-spec.ts")}
+2025-08-28T03:20:48.169584Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T03:25:12.470795Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T03:25:12.470854Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T03:25:12.471079Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T03:25:17.566010Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T03:25:17.566037Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T03:25:17.631441Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T03:27:10.262549Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("env.example")}
+2025-08-28T03:27:10.262703Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-08-28T03:27:10.359193Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\test\\app.e2e-spec.ts"), AnchoredSystemPathBuf("README.md"), AnchoredSystemPathBuf("packages\\config\\src\\index.ts")}
+2025-08-28T03:27:10.359237Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/config"), path: AnchoredSystemPathBuf("packages\\config") }, WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }, WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T03:27:10.359286Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T03:27:10.359418Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T03:34:34.769039Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\webhooks\\webhooks.service.ts")}
+2025-08-28T03:34:34.769286Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T03:35:24.662376Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\webhooks\\webhooks.controller.ts")}
+2025-08-28T03:35:24.662563Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T03:36:35.470903Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.service.ts")}
+2025-08-28T03:36:35.471174Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T03:36:48.161757Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.service.ts")}
+2025-08-28T03:36:48.161787Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T03:37:03.156287Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.service.ts")}
+2025-08-28T03:37:03.156311Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T03:37:33.958497Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.service.ts")}
+2025-08-28T03:37:33.958528Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T03:37:46.958860Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.service.ts")}
+2025-08-28T03:37:46.958899Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T03:37:58.856954Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.service.ts")}
+2025-08-28T03:37:58.856978Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T03:38:13.366913Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.service.ts")}
+2025-08-28T03:38:13.366962Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T03:38:26.663123Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.service.ts")}
+2025-08-28T03:38:26.663153Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T03:38:42.460920Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.service.ts")}
+2025-08-28T03:38:42.460959Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T03:38:58.955420Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.service.ts")}
+2025-08-28T03:38:58.955450Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T03:39:14.166469Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.service.ts")}
+2025-08-28T03:39:14.166561Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T03:39:48.755514Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.service.ts")}
+2025-08-28T03:39:48.755551Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T03:40:03.269266Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.service.ts")}
+2025-08-28T03:40:03.269304Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T03:41:01.164299Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.controller.ts")}
+2025-08-28T03:41:01.164345Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T03:41:15.365112Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.controller.ts")}
+2025-08-28T03:41:15.365266Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T03:41:15.460431Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.controller.ts")}
+2025-08-28T03:41:15.460461Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T03:41:15.460576Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T03:41:28.555555Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.controller.ts")}
+2025-08-28T03:41:28.555683Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T03:41:46.868191Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.controller.ts")}
+2025-08-28T03:41:46.868233Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T03:42:14.458517Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.controller.ts")}
+2025-08-28T03:42:14.458568Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T03:43:48.458532Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("FRONTEND_SPECS.md")}
+2025-08-28T03:43:48.458564Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-08-28T03:43:49.469325Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("")}
+2025-08-28T03:43:49.469368Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({}))
+2025-08-28T03:43:51.769448Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("FRONTEND_SPECS.md")}
+2025-08-28T03:43:51.769770Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-08-28T03:44:47.661103Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\test"), AnchoredSystemPathBuf("apps\\api\\test\\whatsapp.e2e-spec.ts")}
+2025-08-28T03:44:47.661145Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T03:44:51.256321Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api\\test\\whatsapp.e2e-spec.ts")}
+2025-08-28T03:44:51.256350Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T03:45:20.263611Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("README.md")}
+2025-08-28T03:45:20.263641Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-08-28T03:45:36.860859Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T03:45:36.860884Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T03:45:36.860971Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T03:46:01.155486Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\api")}
+2025-08-28T03:46:01.155546Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }}))
+2025-08-28T03:46:01.255725Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-08-28T03:47:11.765484Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("PASSO4_COMPLETO.md")}
+2025-08-28T03:47:11.765518Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-08-28T03:47:12.557907Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("")}
+2025-08-28T03:47:12.558043Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({}))
+2025-08-28T03:47:14.659651Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("PASSO4_COMPLETO.md")}
+2025-08-28T03:47:14.659676Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-08-28T03:47:37.458388Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("PASSO4_COMPLETO.md"), AnchoredSystemPathBuf("apps\\api\\src\\webhooks\\webhooks.service.ts"), AnchoredSystemPathBuf("FRONTEND_SPECS.md"), AnchoredSystemPathBuf("apps\\api\\src\\webhooks\\webhooks.controller.ts"), AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.service.ts"), AnchoredSystemPathBuf("apps\\api\\test\\whatsapp.e2e-spec.ts"), AnchoredSystemPathBuf("README.md"), AnchoredSystemPathBuf("apps\\api\\src\\messaging\\messaging.controller.ts")}
+2025-08-28T03:47:37.458454Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@atendechat/api"), path: AnchoredSystemPathBuf("apps\\api") }, WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-08-28T03:47:37.458535Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun

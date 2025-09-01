@@ -1,0 +1,50 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Production builds
+dist/
+build/
+.next/
+out/
+
+# Generated files
+*.d.ts
+*.js.map
+*.tsbuildinfo
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory
+coverage/
+*.lcov
+
+# Environment variables
+.env*
+
+# Prisma
+prisma/migrations/
+
+# Uploads
+uploads/
+public/uploads/
+
+# Docker
+.dockerignore
+
+# Turbo
+.turbo
+
+# Package files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml

@@ -1,0 +1,128 @@
+{
+  "role": "admin-owner",
+  "version": "1.0.0-rc.1",
+  "testDate": "",
+  "tester": "",
+  "totalTests": 20,
+  "passed": 0,
+  "failed": 0,
+  "successRate": 0,
+  "results": {
+    "1.1": {
+      "testName": "Registro de Nova Empresa",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "1.2": {
+      "testName": "Login SSO",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "2.1": {
+      "testName": "Onboarding Wizard - Passo 1: Empresa & Preferências",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "2.2": {
+      "testName": "Onboarding Wizard - Passo 2: Usuários & Equipes",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "2.3": {
+      "testName": "Onboarding Wizard - Passo 3: Canais",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "2.4": {
+      "testName": "Onboarding Wizard - Passo 4: IA & Notificações",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "3.1": {
+      "testName": "Criar Nova Equipe",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "3.2": {
+      "testName": "Gerenciar Permissões",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "4.1": {
+      "testName": "WhatsApp Cloud",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "4.2": {
+      "testName": "Baileys (QR Code)",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "5.1": {
+      "testName": "Configurar Webhook",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "5.2": {
+      "testName": "Testar Integração",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "6.1": {
+      "testName": "Explorar Apps Disponíveis",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "6.2": {
+      "testName": "Instalar App",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "7.1": {
+      "testName": "Verificar Plano Atual",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "7.2": {
+      "testName": "Upgrade de Plano",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    }
+  },
+  "observations": "",
+  "problems": "",
+  "recommendations": "",
+  "overallStatus": "NOT_STARTED"
+}

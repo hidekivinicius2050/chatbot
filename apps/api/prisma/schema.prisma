@@ -1,0 +1,782 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("DATABASE_URL")          // Neon pooler: ?sslmode=require&pgbouncer=true
+  directUrl = env("DIRECT_DATABASE_URL")   // Neon primary: ?sslmode=require
+}
+
+enum Role {
+  OWNER
+  ADMIN
+  AGENT
+  VIEWER
+}
+
+model Company {
+  id           String   @id @default(cuid())
+  name         String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  users        User[]
+  contacts     Contact[]
+  channels     Channel[]
+  tickets      Ticket[]
+  messages     Message[]
+  outbox       Outbox[]
+  campaigns    Campaign[]
+  campaignTargets CampaignTarget[]
+  campaignRuns CampaignRun[]
+  optOuts      OptOut[]
+  eventLogs    EventLog[]
+  businessHours BusinessHours?
+  slaPolicy    SlaPolicy?
+  automations  Automation[]
+  automationRuns AutomationRun[]
+  ticketSlas   TicketSla[]
+  metricDailies MetricDaily[]
+  auditLogs    AuditLog[]
+  subscription Subscription?
+  subscriptionEntitlement SubscriptionEntitlement?
+  usageCounters UsageCounter[]
+  invoices     Invoice[]
+  invites      Invite[]
+  appInstallations AppInstallation[]
+  appTokens    AppToken[]
+  webhookEndpoints WebhookEndpoint[]
+  outboundEvents OutboundEvent[]
+  webhookDeliveries WebhookDelivery[]
+  knowledgeBases KnowledgeBase[]
+  ticketInsights TicketInsights[]
+  consentEvents ConsentEvent[]
+  dsrRequests   DsrRequest[]
+}
+
+model User {
+  id           String   @id @default(cuid())
+  companyId    String
+  email        String   @unique
+  name         String
+  passwordHash String
+  role         Role     @default(AGENT)
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  company      Company  @relation(fields: [companyId], references: [id])
+  refreshTokens RefreshToken[]
+  assignedTickets Ticket[] @relation("AssignedTo")
+  sentMessages Message[] @relation("SentBy")
+  createdCampaigns Campaign[] @relation("CampaignCreator")
+  identities   UserIdentity[]
+  sentInvites  Invite[] @relation("InvitedBy")
+  acceptedInvites Invite[] @relation("AcceptedBy")
+}
+
+model RefreshToken {
+  id         String   @id @default(cuid()) // jti
+  userId     String
+  revoked    Boolean  @default(false)
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  user       User     @relation(fields: [userId], references: [id])
+  @@index([userId])
+}
+
+model Contact {
+  id        String   @id @default(cuid())
+  companyId String
+  name      String
+  phone     String
+  tags      String[] @default([])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  company   Company  @relation(fields: [companyId], references: [id])
+  tickets   Ticket[]
+  campaignTargets CampaignTarget[]
+  optOuts   OptOut[]
+  @@index([companyId, phone], map: "contact_contact_company_phone")
+}
+
+model Channel {
+  id          String   @id @default(cuid())
+  companyId   String
+  externalId  String?  // ID externo do provider (ex: phone number ID do WhatsApp)
+  name        String   // Nome amigável do canal
+  type        String   // "whatsapp-cloud" | "whatsapp-baileys"
+  status      String   // "connected" | "disconnected"
+  config      Json?    // Configuração específica do provider
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  company     Company  @relation(fields: [companyId], references: [id])
+  campaigns   Campaign[]
+  optOuts     OptOut[]
+  @@index([companyId, type])
+  @@index([externalId])
+}
+
+model Ticket {
+  id            String   @id @default(cuid())
+  companyId     String
+  contactId     String
+  status        String   // "open" | "closed" | "pending"
+  priority      String?  // "low" | "medium" | "high"
+  assignedUserId String?
+  lastMessageAt DateTime @default(now())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  company       Company  @relation(fields: [companyId], references: [id])
+  contact       Contact  @relation(fields: [contactId], references: [id])
+  assignedTo    User?    @relation("AssignedTo", fields: [assignedUserId], references: [id])
+  messages      Message[]
+  sla           TicketSla?
+  @@index([companyId, status, lastMessageAt])
+}
+
+model Message {
+  id                 String   @id @default(cuid())
+  companyId          String
+  ticketId           String
+  senderId           String?  // null quando vindo do cliente
+  body               String?  // opcional para mensagens de mídia
+  type               String   // "text" | "image" | "file"
+  mediaUrl           String?  // para uploads
+  providerMessageId  String?  // ID da mensagem no provider externo
+  direction          String   @default("inbound") // "inbound" | "outbound"
+  createdAt          DateTime @default(now())
+  company            Company  @relation(fields: [companyId], references: [id])
+  ticket             Ticket   @relation(fields: [ticketId], references: [id])
+  sender             User?    @relation("SentBy", fields: [senderId], references: [id])
+  @@index([ticketId, createdAt])
+  @@index([providerMessageId])
+  @@index([direction])
+}
+
+model Outbox {
+  id          String   @id @default(cuid())
+  companyId   String
+  type        String   // "message" | "campaign" | "notification"
+  payload     Json
+  status      String   @default("pending") // "pending" | "processing" | "completed" | "failed"
+  attempts    Int      @default(0)
+  maxAttempts Int      @default(3)
+  nextRetryAt DateTime?
+  processedAt DateTime?
+  error       String?
+  company     Company  @relation(fields: [companyId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  @@index([companyId, type])
+  @@index([status])
+  @@index([nextRetryAt])
+}
+
+model Campaign {
+  id          String   @id @default(cuid())
+  companyId   String
+  name        String
+  description String?
+  status      String   @default("draft") // "draft" | "scheduled" | "running" | "paused" | "completed" | "cancelled"
+  type        String   // "broadcast" | "segmented" | "scheduled"
+  message     String   // Conteúdo da mensagem
+  mediaUrl    String?  // URL da mídia (opcional)
+  mediaType   String?  // Tipo da mídia
+  channelId   String   // Canal para envio
+  scheduledAt DateTime? // Data/hora agendada
+  startedAt   DateTime? // Data/hora de início
+  completedAt DateTime? // Data/hora de conclusão
+  totalTargets Int     @default(0) // Total de alvos
+  sentCount   Int      @default(0) // Mensagens enviadas
+  failedCount Int      @default(0) // Mensagens falharam
+  optOutCount Int      @default(0) // Opt-outs
+  config      Json?    // Configurações específicas (rate-limit, retry, etc.)
+  createdBy   String   // ID do usuário que criou
+  company     Company  @relation(fields: [companyId], references: [id])
+  channel     Channel  @relation(fields: [channelId], references: [id])
+  creator     User     @relation("CampaignCreator", fields: [createdBy], references: [id])
+  targets     CampaignTarget[]
+  runs        CampaignRun[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  @@index([companyId, status])
+  @@index([scheduledAt])
+  @@index([createdBy])
+}
+
+model CampaignTarget {
+  id          String   @id @default(cuid())
+  companyId   String
+  campaignId  String
+  contactId   String
+  status      String   @default("pending") // "pending" | "sent" | "failed" | "opt_out"
+  attempts    Int      @default(0)
+  lastAttemptAt DateTime?
+  error       String?
+  providerMessageId String? // ID da mensagem no provider
+  company     Company  @relation(fields: [companyId], references: [id])
+  campaign    Campaign @relation(fields: [campaignId], references: [id])
+  contact     Contact  @relation(fields: [contactId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  @@unique([campaignId, contactId])
+  @@index([companyId, campaignId, status])
+  @@index([status, lastAttemptAt])
+}
+
+model CampaignRun {
+  id          String   @id @default(cuid())
+  companyId   String
+  campaignId  String
+  status      String   // "started" | "running" | "completed" | "failed"
+  startedAt   DateTime @default(now())
+  completedAt DateTime?
+  totalTargets Int
+  processedCount Int   @default(0)
+  successCount Int     @default(0)
+  failureCount Int     @default(0)
+  error       String?
+  company     Company  @relation(fields: [companyId], references: [id])
+  campaign    Campaign @relation(fields: [campaignId], references: [id])
+  createdAt   DateTime @default(now())
+  @@index([companyId, campaignId])
+  @@index([status, startedAt])
+}
+
+model OptOut {
+  id          String   @id @default(cuid())
+  companyId   String
+  contactId   String
+  channelId   String
+  reason      String?  // Motivo do opt-out
+  source      String   // "manual" | "webhook" | "campaign"
+  company     Company  @relation(fields: [companyId], references: [id])
+  contact     Contact  @relation(fields: [contactId], references: [id])
+  channel     Channel  @relation(fields: [channelId], references: [id])
+  createdAt   DateTime @default(now())
+  @@unique([contactId, channelId])
+  @@index([companyId, contactId])
+  @@index([companyId, channelId])
+}
+
+model EventLog {
+  id          String   @id @default(cuid())
+  companyId   String
+  type        String   // "campaign_sent" | "campaign_failed" | "opt_out" | "webhook_received"
+  entityType  String   // "campaign" | "contact" | "message" | "channel"
+  entityId    String   // ID da entidade relacionada
+  data        Json     // Dados do evento
+  metadata    Json?    // Metadados adicionais
+  company     Company  @relation(fields: [companyId], references: [id])
+  createdAt   DateTime @default(now())
+  @@index([companyId, type])
+  @@index([entityType, entityId])
+  @@index([createdAt])
+}
+
+model BusinessHours {
+  id         String   @id @default(cuid())
+  companyId  String   @unique
+  timezone   String   // ex.: "America/Sao_Paulo"
+  // armazenar janela por dia (JSON): { mon:{start:"08:00",end:"18:00"}, ... }
+  weeklyJson Json
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  company    Company  @relation(fields: [companyId], references: [id])
+}
+
+model SlaPolicy {
+  id                 String   @id @default(cuid())
+  companyId          String   @unique
+  firstResponseMins  Int      @default(15)
+  resolutionMins     Int      @default(480)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  company            Company  @relation(fields: [companyId], references: [id])
+}
+
+model TicketSla {
+  id                 String   @id @default(cuid())
+  companyId          String
+  ticketId           String   @unique
+  firstResponseDueAt DateTime
+  resolutionDueAt    DateTime
+  firstRespondedAt   DateTime?
+  resolvedAt         DateTime?
+  breachedFirstResp  Boolean  @default(false)
+  breachedResolution Boolean  @default(false)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  company            Company  @relation(fields: [companyId], references: [id])
+  ticket             Ticket   @relation(fields: [ticketId], references: [id])
+  @@index([companyId, breachedFirstResp, breachedResolution])
+}
+
+model Automation {
+  id         String   @id @default(cuid())
+  companyId  String
+  name       String
+  enabled    Boolean  @default(true)
+  // JSON DSL do fluxo (triggers, conditions, actions, edges)
+  dsl        Json
+  createdBy  String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  company    Company  @relation(fields: [companyId], references: [id])
+  runs       AutomationRun[]
+  @@index([companyId, enabled])
+}
+
+model AutomationRun {
+  id           String   @id @default(cuid())
+  companyId    String
+  automationId String
+  ticketId     String?
+  contactId    String?
+  status       String   // running|completed|failed
+  startedAt    DateTime @default(now())
+  finishedAt   DateTime?
+  error        String?
+  context      Json?
+  company      Company  @relation(fields: [companyId], references: [id])
+  automation   Automation @relation(fields: [automationId], references: [id])
+  @@index([companyId, automationId, status])
+}
+
+// Agregados diários materializados para consultas rápidas
+model MetricDaily {
+  id          String   @id @default(cuid())
+  companyId   String
+  date        DateTime // UTC 00:00 do dia
+  scope       String   // "chat" | "campaign" | "sla" | "channel" | "agent"
+  key         String   // ex.: channelId, agentId, "total" etc.
+  metric      String   // "messages","tickets_opened","delivered","failed","first_response_avg_ms","resolution_avg_ms"
+  value       Float
+  updatedAt   DateTime @updatedAt
+  company     Company  @relation(fields: [companyId], references: [id])
+  @@index([companyId, date, scope, key, metric])
+  @@unique([companyId, date, scope, key, metric])
+}
+
+// Auditoria de ações administrativas/usuário
+enum AuditAction {
+  LOGIN
+  LOGOUT
+  CREATE
+  UPDATE
+  DELETE
+  SEND_MESSAGE
+  START_CAMPAIGN
+  PAUSE_CAMPAIGN
+  RESUME_CAMPAIGN
+  FINISH_CAMPAIGN
+  CHANGE_SETTINGS
+  SET_SLA
+  SET_BUSINESS_HOURS
+  ASSIGN_TICKET
+  AUTOMATION_RUN
+  // Compliance actions
+  CONSENT_RECORDED
+  CONSENT_WITHDRAWN
+  DSR_REQUESTED
+  DSR_APPROVED
+  DSR_REJECTED
+  DSR_COMPLETED
+  RETENTION_CLEANUP
+  DATA_ANONYMIZED
+}
+
+model AuditLog {
+  id         String      @id @default(cuid())
+  companyId  String
+  actorId    String?     // user.id (pode ser null em webhooks)
+  actorRole  String?
+  action     AuditAction
+  targetType String      // "ticket" | "message" | "campaign" | "channel" | "settings" | ...
+  targetId   String?
+  success    Boolean     @default(true)
+  ip         String?
+  userAgent  String?
+  meta       Json?
+  createdAt  DateTime    @default(now())
+  company    Company     @relation(fields: [companyId], references: [id])
+  @@index([companyId, action, createdAt])
+}
+
+enum PlanTier {
+  FREE
+  PRO
+  BUSINESS
+  CUSTOM
+}
+
+model Plan {
+  id          String   @id @default(cuid())
+  tier        PlanTier @unique
+  name        String
+  description String?
+  // limites/flags padrão; podem ser sobrescritos por SubscriptionEntitlement
+  maxUsers              Int
+  maxChannels           Int
+  maxMessagesMonthly    Int
+  maxCampaignsDaily     Int
+  retentionDays         Int
+  features              Json          // ex.: {"automations":true,"campaigns":true,"reports":"advanced"}
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  subscriptions Subscription[]
+}
+
+model Subscription {
+  id          String   @id @default(cuid())
+  companyId   String   @unique
+  planId      String
+  provider    String   // "mock"|"stripe"
+  status      String   // "active"|"trialing"|"past_due"|"canceled"
+  currentPeriodStart DateTime
+  currentPeriodEnd   DateTime
+  anchorDay   Int      @default(1)
+  providerCustomerId String?
+  providerSubId      String?
+  canceledAt  DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  plan        Plan     @relation(fields: [planId], references: [id])
+  company     Company  @relation(fields: [companyId], references: [id])
+}
+
+model SubscriptionEntitlement {
+  id            String   @id @default(cuid())
+  companyId     String   @unique
+  // sobrescreve limites do plano (quando necessário)
+  maxUsers              Int?
+  maxChannels           Int?
+  maxMessagesMonthly    Int?
+  maxCampaignsDaily     Int?
+  retentionDays         Int?
+  features              Json?
+  updatedAt     DateTime @updatedAt
+  company       Company  @relation(fields: [companyId], references: [id])
+}
+
+model UsageCounter {
+  id          String   @id @default(cuid())
+  companyId   String
+  periodStart DateTime // início do ciclo (UTC)
+  periodEnd   DateTime // fim do ciclo (UTC)
+  key         String   // "messages.monthly" | "campaigns.daily:2025-08-28" | ...
+  value       Int      @default(0)
+  updatedAt   DateTime @updatedAt
+  company     Company  @relation(fields: [companyId], references: [id])
+
+  @@index([companyId, key])
+  @@unique([companyId, key, periodStart, periodEnd])
+}
+
+model Invoice {
+  id          String   @id @default(cuid())
+  companyId   String
+  provider    String
+  providerInvoiceId String?
+  amountCents Int
+  currency    String   @default("BRL")
+  status      String   // "draft"|"open"|"paid"|"void"|"uncollectible"
+  issuedAt    DateTime
+  dueAt       DateTime?
+  closedAt    DateTime?
+  meta        Json?
+  company     Company  @relation(fields: [companyId], references: [id])
+  @@index([companyId, status, issuedAt])
+}
+
+// SSO / OIDC Identity
+model UserIdentity {
+  id          String   @id @default(cuid())
+  userId      String
+  provider    String   // "google" | "microsoft" | "generic"
+  providerId  String   // ID único do usuário no provider
+  email       String
+  name        String?
+  picture     String?
+  emailVerified Boolean @default(false)
+  claims      Json?    // claims adicionais do OIDC
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@unique([provider, providerId])
+  @@index([userId, provider])
+}
+
+// Reset de senha
+model PasswordReset {
+  id          String   @id @default(cuid())
+  email       String
+  tokenHash   String   // hash do token (argon2id)
+  expiresAt   DateTime
+  used        Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  
+  @@index([email, tokenHash])
+  @@index([expiresAt])
+}
+
+// Convites
+model Invite {
+  id          String   @id @default(cuid())
+  companyId   String
+  email       String
+  role        Role
+  tokenHash   String   // hash do token (argon2id)
+  expiresAt   DateTime
+  accepted    Boolean  @default(false)
+  acceptedAt  DateTime?
+  acceptedBy  String?  // userId que aceitou
+  invitedBy   String   // userId que convidou
+  createdAt   DateTime @default(now())
+  company     Company  @relation(fields: [companyId], references: [id])
+  invitedByUser User   @relation("InvitedBy", fields: [invitedBy], references: [id])
+  acceptedByUser User? @relation("AcceptedBy", fields: [acceptedBy], references: [id])
+  
+  @@index([companyId, email])
+  @@index([tokenHash])
+  @@index([expiresAt])
+}
+
+// Plugins & Marketplace
+enum PluginKind {
+  webhook_only
+  oauth_app
+  custom
+}
+
+enum AppScope {
+  read_tickets
+  write_tickets
+  read_messages
+  write_messages
+  read_contacts
+  write_contacts
+  read_campaigns
+  write_campaigns
+  read_channels
+  write_channels
+  manage_settings
+}
+
+model Plugin {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  name        String
+  publisher   String
+  kind        PluginKind @default(webhook_only)
+  description String?
+  website     String?
+  appUrl      String?     // docs/config do app
+  features    Json?       // livre
+  requiredScopes AppScope[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  versions    PluginVersion[]
+  installations AppInstallation[]
+}
+
+model PluginVersion {
+  id          String    @id @default(cuid())
+  pluginId    String
+  version     String
+  manifest    Json       // endpoints, eventos suportados, instruções
+  changelog   String?
+  createdAt   DateTime   @default(now())
+  plugin      Plugin     @relation(fields: [pluginId], references: [id])
+  @@index([pluginId, version])
+}
+
+model AppInstallation {
+  id          String   @id @default(cuid())
+  companyId   String
+  pluginId    String
+  status      String   @default("active") // active|disabled
+  settings    Json?
+  secretsEnc  String?  // criptografado (DATA_ENC_KEY)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  plugin      Plugin   @relation(fields: [pluginId], references: [id])
+  company     Company  @relation(fields: [companyId], references: [id])
+  tokens      AppToken[]
+  webhooks    WebhookEndpoint[]
+  @@index([companyId, pluginId])
+}
+
+model AppToken {
+  id          String   @id @default(cuid())
+  companyId   String
+  installationId String
+  tokenHash   String   // hash (argon2id) do token plaintext (mostrado 1x)
+  scopes      AppScope[]
+  createdAt   DateTime @default(now())
+  lastUsedAt  DateTime?
+  company     Company  @relation(fields: [companyId], references: [id])
+  installation AppInstallation @relation(fields: [installationId], references: [id])
+  @@index([companyId, installationId])
+}
+
+model WebhookEndpoint {
+  id          String   @id @default(cuid())
+  companyId   String
+  installationId String
+  url         String
+  description String?
+  enabled     Boolean  @default(true)
+  secretEnc   String?  // criptografado
+  events      String[] // ex.: ["ticket.*","message.created","campaign.progress"]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  company     Company  @relation(fields: [companyId], references: [id])
+  installation AppInstallation @relation(fields: [installationId], references: [id])
+  deliveries  WebhookDelivery[]
+  @@index([companyId, installationId])
+}
+
+model OutboundEvent {
+  id          String   @id @default(cuid())
+  companyId   String
+  key         String   // ex.: "message.created"
+  refType     String   // "message"|"ticket"|"campaign"...
+  refId       String
+  payload     Json
+  createdAt   DateTime @default(now())
+  processedAt DateTime?
+  company     Company  @relation(fields: [companyId], references: [id])
+  @@index([companyId, key, createdAt])
+}
+
+model WebhookDelivery {
+  id            String   @id @default(cuid())
+  companyId     String
+  endpointId    String
+  eventId       String   // OutboundEvent.id
+  attempt       Int      @default(0)
+  status        String   // pending|ok|failed|skipped
+  httpStatus    Int?
+  durationMs    Int?
+  error         String?
+  signature     String?
+  idempotencyKey String
+  nextAttemptAt DateTime?
+  deliveredAt   DateTime?
+  createdAt     DateTime @default(now())
+  company       Company  @relation(fields: [companyId], references: [id])
+  endpoint      WebhookEndpoint @relation(fields: [endpointId], references: [id])
+  @@unique([endpointId, eventId])       // idempotência por endpoint
+  @@index([companyId, endpointId, status, createdAt])
+}
+
+// ===== IA de Atendimento =====
+
+model KnowledgeBase {
+  id          String   @id @default(cuid())
+  companyId   String
+  name        String
+  description String?
+  isDefault   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  company     Company  @relation(fields: [companyId], references: [id])
+  articles    KBArticle[]
+  chunks      KBChunk[]
+  @@index([companyId, isDefault])
+}
+
+model KBArticle {
+  id          String   @id @default(cuid())
+  kbId        String
+  title       String
+  contentMd   String   // Markdown
+  lang        String   @default("pt-BR")
+  tags        String[]
+  status      String   @default("published") // draft|published|archived
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  kb          KnowledgeBase @relation(fields: [kbId], references: [id])
+  chunks      KBChunk[]
+  @@index([kbId, status])
+}
+
+model KBChunk {
+  id          String   @id @default(cuid())
+  articleId   String
+  kbId        String
+  content     String
+  tokenCount  Int
+  // Embedding pgvector (1536 dims p/ text-embedding-3-small)
+  embedding   Unsupported("vector")
+  createdAt   DateTime @default(now())
+  article     KBArticle @relation(fields: [articleId], references: [id])
+  kb          KnowledgeBase @relation(fields: [kbId], references: [id])
+  @@index([kbId])
+}
+
+model TicketInsights {
+  ticketId    String   @id
+  companyId   String
+  summary     String?   // sumário gerado
+  sentiment   String?   // positive|neutral|negative
+  tags        String[]  @default([])
+  updatedAt   DateTime  @updatedAt
+  company     Company   @relation(fields: [companyId], references: [id])
+}
+
+// ===== LGPD & Conformidade =====
+
+enum ConsentKind {
+  TERMS
+  PRIVACY
+  COOKIES
+}
+
+enum DsrKind {
+  ACCESS
+  EXPORT
+  DELETE
+  RECTIFICATION
+}
+
+enum DsrStatus {
+  REQUESTED
+  IN_PROGRESS
+  COMPLETED
+  REJECTED
+}
+
+model ConsentEvent {
+  id         String   @id @default(cuid())
+  companyId  String
+  userId     String?
+  kind       ConsentKind
+  accepted   Boolean
+  ip         String?
+  userAgent  String?
+  createdAt  DateTime @default(now())
+  company    Company  @relation(fields: [companyId], references: [id])
+  @@index([companyId, kind, createdAt])
+}
+
+model DsrRequest {
+  id         String   @id @default(cuid())
+  companyId  String
+  requesterEmail String
+  kind       DsrKind
+  status     DsrStatus @default(REQUESTED)
+  resultPath String?  // export zip (se houver)
+  reason     String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  company    Company  @relation(fields: [companyId], references: [id])
+  @@index([companyId, kind, status, createdAt])
+}
+
+// ===== Relacionamentos Company =====

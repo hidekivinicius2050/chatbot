@@ -1,0 +1,15 @@
+{
+  "moduleFileExtensions": ["js", "json", "ts"],
+  "rootDir": ".",
+  "testEnvironment": "node",
+  "testRegex": ".e2e-spec.ts$",
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "moduleNameMapping": {
+    "^@/(.*)$": "<rootDir>/../src/$1",
+    "^@atendechat/core$": "<rootDir>/../../packages/core/src",
+    "^@atendechat/providers$": "<rootDir>/../../packages/providers/src",
+    "^@atendechat/config$": "<rootDir>/../../packages/config/src"
+  }
+}

@@ -1,0 +1,198 @@
+name: QA & Performance Tests
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+  schedule:
+    # Executar diariamente às 2h da manhã
+    - cron: '0 2 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Build monorepo
+      run: npm run build
+
+  unit-tests:
+    runs-on: ubuntu-latest
+    needs: build
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Run unit tests
+      run: npm run test:cov
+    
+    - name: Upload coverage reports
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./coverage/lcov.info
+        flags: unittests
+        name: codecov-umbrella
+
+  e2e-tests:
+    runs-on: ubuntu-latest
+    needs: build
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Start API
+      run: |
+        cd apps/api
+        npm run start:dev &
+        sleep 30
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        REDIS_URL: ${{ secrets.REDIS_URL }}
+    
+    - name: Run E2E tests
+      run: npm run test:e2e
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        REDIS_URL: ${{ secrets.REDIS_URL }}
+
+  performance-tests:
+    runs-on: ubuntu-latest
+    needs: build
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Install k6
+      run: |
+        sudo gpg -k
+        sudo gpg --no-default-keyring --keyring /usr/share/keyrings/k6-archive-keyring.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C5AD17C747E3415A3642D57D77C6C491D6AC1D69
+        echo "deb [signed-by=/usr/share/keyrings/k6-archive-keyring.gpg] https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
+        sudo apt-get update
+        sudo apt-get install k6
+    
+    - name: Start API
+      run: |
+        cd apps/api
+        npm run start:dev &
+        sleep 30
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        REDIS_URL: ${{ secrets.REDIS_URL }}
+    
+    - name: Run k6 smoke test
+      run: npm run qa:smoke
+      env:
+        K6_BASE_URL: http://localhost:8080
+        K6_ACCESS_EMAIL: admin@test.com
+        K6_ACCESS_PASSWORD: 123456
+    
+    - name: Upload k6 results
+      uses: actions/upload-artifact@v3
+      with:
+        name: k6-results
+        path: tests/k6/out/
+        retention-days: 30
+
+  security-scan:
+    runs-on: ubuntu-latest
+    needs: build
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Run security scan
+      run: npm run sec:scan
+      working-directory: ./apps/api
+
+  quality-gates:
+    runs-on: ubuntu-latest
+    needs: [unit-tests, e2e-tests, performance-tests]
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Check coverage threshold
+      run: |
+        # Verificar se a cobertura está acima de 70%
+        COVERAGE=$(npm run test:cov --silent | grep -o 'All files[^%]*' | grep -o '[0-9.]*')
+        if (( $(echo "$COVERAGE < 70" | bc -l) )); then
+          echo "Coverage $COVERAGE% is below 70% threshold"
+          exit 1
+        fi
+        echo "Coverage $COVERAGE% meets threshold"
+    
+    - name: Check performance thresholds
+      run: |
+        # Verificar se os testes de performance passaram
+        if [ -f "tests/k6/out/results.json" ]; then
+          echo "Performance tests completed successfully"
+        else
+          echo "Performance tests failed"
+          exit 1
+        fi
+
+  deploy-staging:
+    runs-on: ubuntu-latest
+    needs: [quality-gates]
+    if: github.ref == 'refs/heads/develop'
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Deploy to staging
+      run: |
+        echo "Deploying to staging environment"
+        # Adicionar lógica de deploy aqui
+    
+    - name: Notify team
+      run: |
+        echo "Staging deployment completed successfully"
+        # Adicionar notificação (Slack, email, etc.)

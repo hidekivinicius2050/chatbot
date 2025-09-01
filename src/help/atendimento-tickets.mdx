@@ -1,0 +1,110 @@
+# Atendimento e Tickets
+
+## Visão Geral
+
+O sistema de tickets é o coração do AtendeChat, permitindo que sua equipe gerencie e responda às solicitações dos clientes de forma organizada e eficiente.
+
+## Como Funciona
+
+### 1. Criação de Tickets
+
+Os tickets são criados automaticamente quando:
+- Um cliente envia uma mensagem pelo WhatsApp
+- Um email é recebido (se configurado)
+- Um ticket é criado manualmente pela equipe
+
+### 2. Estados do Ticket
+
+- **Aberto**: Ticket recém-criado, aguardando primeira resposta
+- **Em Andamento**: Ticket sendo atendido por um agente
+- **Aguardando Cliente**: Resposta enviada, aguardando retorno do cliente
+- **Resolvido**: Ticket concluído com sucesso
+- **Fechado**: Ticket arquivado
+
+### 3. Prioridades
+
+- **Baixa**: Solicitações não urgentes
+- **Normal**: Solicitações padrão
+- **Alta**: Solicitações urgentes
+- **Crítica**: Problemas que afetam o negócio
+
+## Funcionalidades Principais
+
+### Atribuição de Tickets
+
+- **Automática**: Baseada em regras configuradas
+- **Manual**: Atribuição direta a agentes específicos
+- **Por Equipe**: Distribuição entre equipes
+
+### SLA (Service Level Agreement)
+
+- **Tempo de Primeira Resposta**: Configurável por prioridade
+- **Tempo de Resolução**: Metas definidas por tipo de ticket
+- **Alertas**: Notificações quando SLA está em risco
+
+### Histórico e Contexto
+
+- **Conversa Completa**: Todas as mensagens em um só lugar
+- **Metadados**: Informações do cliente, canal, tags
+- **Anexos**: Arquivos compartilhados durante a conversa
+
+## Dicas de Uso
+
+### Para Agentes
+
+1. **Responda Rapidamente**: Mantenha o SLA de primeira resposta
+2. **Use Tags**: Organize tickets com tags relevantes
+3. **Atualize Status**: Mantenha o estado do ticket atualizado
+4. **Documente Soluções**: Use notas internas para conhecimento da equipe
+
+### Para Administradores
+
+1. **Configure SLAs**: Defina metas realistas para sua equipe
+2. **Monitore Métricas**: Acompanhe tempo de resposta e satisfação
+3. **Analise Tendências**: Identifique problemas recorrentes
+4. **Treine a Equipe**: Capacite agentes nas melhores práticas
+
+## Integrações
+
+### WhatsApp
+- Conexão direta com WhatsApp Business
+- Suporte a mídia (imagens, documentos, áudio)
+- Indicador de digitação em tempo real
+
+### Email
+- Criação automática de tickets
+- Respostas sincronizadas
+- Anexos preservados
+
+### Webhooks
+- Notificações em tempo real
+- Integração com sistemas externos
+- Automações personalizadas
+
+## Solução de Problemas
+
+### Ticket Não Atualiza
+- Verifique a conexão com WhatsApp
+- Confirme se o webhook está funcionando
+- Verifique logs do sistema
+
+### Notificações Não Chegam
+- Confirme configurações de push
+- Verifique permissões do navegador
+- Teste notificações de teste
+
+### Performance Lenta
+- Verifique conexão com banco de dados
+- Monitore uso de recursos
+- Considere otimizações de consulta
+
+## Próximos Passos
+
+- [Configurar SLAs](/help/configuracao-sla)
+- [Gerenciar Equipes](/help/gestao-equipes)
+- [Configurar Automações](/help/automacoes)
+- [Analisar Relatórios](/help/relatorios)
+
+---
+
+**Precisa de mais ajuda?** Entre em contato com nossa equipe de suporte.

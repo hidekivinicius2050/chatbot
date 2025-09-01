@@ -1,0 +1,41 @@
+{
+  "name": "atendechat-2.0",
+  "version": "1.0.0",
+  "description": "SaaS Atendechat 2.0 - Monorepo com arquitetura hexagonal",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "dev:api": "cd apps/api && pnpm run dev",
+    "dev:web": "cd apps/web && pnpm run dev",
+    "dev:worker": "cd apps/worker && pnpm run dev",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean",
+    "db:generate": "turbo run db:generate",
+    "db:migrate": "turbo run db:migrate",
+    "db:seed": "turbo run db:seed",
+    "db:studio": "turbo run db:studio",
+    "qa:seed": "cd apps/api && pnpm run qa:seed",
+    "qa:smoke": "k6 run tests/k6/auth_login.js --env K6_BASE_URL=http://localhost:8080 --env K6_ACCESS_EMAIL=admin@test.com --env K6_ACCESS_PASSWORD=123456",
+    "qa:soak": "k6 run tests/k6/tickets_browse.js --env K6_BASE_URL=http://localhost:8080 --env K6_ACCESS_EMAIL=admin@test.com --env K6_ACCESS_PASSWORD=123456",
+    "qa:burst": "k6 run tests/k6/chat_send.js --env K6_BASE_URL=http://localhost:8080 --env K6_ACCESS_EMAIL=admin@test.com --env K6_ACCESS_PASSWORD=123456"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.12.0",
+    "dotenv-cli": "^7.3.0",
+    "turbo": "^1.11.0",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.15.0"
+}

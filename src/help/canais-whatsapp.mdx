@@ -1,0 +1,157 @@
+# Canais WhatsApp
+
+## Visão Geral
+
+O AtendeChat oferece duas opções para conectar com WhatsApp: **WhatsApp Cloud API** e **Baileys**. Cada uma tem suas vantagens e casos de uso específicos.
+
+## WhatsApp Cloud API
+
+### O que é
+A solução oficial do Meta para empresas, oferecendo alta confiabilidade e recursos avançados.
+
+### Vantagens
+- ✅ **Confiabilidade**: Infraestrutura do Meta
+- ✅ **Escalabilidade**: Suporte a alto volume
+- ✅ **Recursos**: Mídia, botões, listas
+- ✅ **Suporte**: Documentação oficial completa
+- ✅ **Compliance**: Atende regulamentações
+
+### Configuração
+
+#### 1. Criar App no Meta
+1. Acesse [Meta for Developers](https://developers.facebook.com/)
+2. Crie um novo app ou use um existente
+3. Adicione o produto "WhatsApp Business API"
+
+#### 2. Configurar Webhook
+```bash
+# URL do webhook
+https://seudominio.com/api/v1/webhooks/whatsapp
+
+# Token de verificação
+<seu-token-verificacao>
+```
+
+#### 3. Configurar no AtendeChat
+- Phone Number ID
+- Access Token
+- Webhook URL
+- Token de verificação
+
+### Limitações
+- **Custo**: Taxa por mensagem após 1000/mês
+- **Aprovação**: Templates precisam ser aprovados
+- **Funcionalidades**: Algumas restrições de uso
+
+## Baileys
+
+### O que é
+Uma implementação não oficial do WhatsApp Web, oferecendo mais flexibilidade e controle.
+
+### Vantagens
+- ✅ **Gratuito**: Sem custos por mensagem
+- ✅ **Flexível**: Controle total sobre funcionalidades
+- ✅ **Offline**: Funciona sem internet (temporariamente)
+- ✅ **Customização**: Adaptável às necessidades
+
+### Configuração
+
+#### 1. Preparar Dispositivo
+- WhatsApp instalado e ativo
+- Número verificado
+- Conexão estável
+
+#### 2. Gerar QR Code
+1. Acesse Configurações > Canais
+2. Clique em "Adicionar Baileys"
+3. Escaneie o QR Code com seu WhatsApp
+
+#### 3. Manter Conexão
+- Evite desconectar o WhatsApp Web
+- Mantenha o dispositivo conectado
+- Monitore status da conexão
+
+### Limitações
+- **Instabilidade**: Pode desconectar ocasionalmente
+- **Suporte**: Sem garantias oficiais
+- **Funcionalidades**: Limitado ao WhatsApp Web
+
+## Comparação
+
+| Aspecto | WhatsApp Cloud | Baileys |
+|---------|----------------|---------|
+| **Custo** | Pago após 1000/mês | Gratuito |
+| **Confiabilidade** | Alta | Média |
+| **Configuração** | Complexa | Simples |
+| **Suporte** | Oficial | Comunidade |
+| **Escalabilidade** | Alta | Limitada |
+| **Flexibilidade** | Baixa | Alta |
+
+## Recomendações
+
+### Use WhatsApp Cloud quando:
+- Você tem alto volume de mensagens
+- Precisa de máxima confiabilidade
+- Quer recursos avançados
+- Tem orçamento para custos
+
+### Use Baileys quando:
+- Você está começando
+- Tem baixo volume
+- Precisa de flexibilidade
+- Quer controlar custos
+
+## Solução de Problemas
+
+### WhatsApp Cloud
+
+#### Webhook não recebe mensagens
+```bash
+# Verificar configuração
+curl -X POST "https://graph.facebook.com/v17.0/<phone-number-id>/messages" \
+  -H "Authorization: Bearer <access-token>" \
+  -H "Content-Type: application/json" \
+  -d '{"messaging_product":"whatsapp","to":"<number>","type":"text","text":{"body":"Teste"}}'
+```
+
+#### Token expirado
+1. Regenerar Access Token
+2. Atualizar no AtendeChat
+3. Verificar permissões do app
+
+### Baileys
+
+#### Conexão perdida
+1. Verificar QR Code
+2. Reconectar WhatsApp
+3. Verificar logs do sistema
+
+#### Mensagens não chegam
+1. Verificar status da conexão
+2. Confirmar se WhatsApp está ativo
+3. Verificar logs de erro
+
+## Monitoramento
+
+### Métricas Importantes
+- **Taxa de entrega**: % de mensagens entregues
+- **Tempo de resposta**: Velocidade de resposta
+- **Status da conexão**: Estabilidade do canal
+- **Erros**: Falhas e problemas
+
+### Alertas Recomendados
+- Conexão perdida por > 5 minutos
+- Taxa de entrega < 95%
+- Erros consecutivos > 10
+- Tempo de resposta > 30 segundos
+
+## Próximos Passos
+
+- [Configurar Webhooks](/help/webhooks)
+- [Gerenciar Templates](/help/templates-whatsapp)
+- [Configurar Automações](/help/automacoes)
+- [Analisar Métricas](/help/metricas-canais)
+
+---
+
+**Precisa de ajuda com configuração?** Nossa equipe está pronta para ajudar!

@@ -1,0 +1,170 @@
+{
+  "role": "analyst",
+  "version": "1.0.0-rc.1",
+  "testDate": "",
+  "tester": "",
+  "totalTests": 22,
+  "passed": 0,
+  "failed": 0,
+  "successRate": 0,
+  "results": {
+    "1.1": {
+      "testName": "Login de Analista",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "1.2": {
+      "testName": "Verificar Permissões",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "2.1": {
+      "testName": "Métricas Gerais",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "2.2": {
+      "testName": "Filtros de Período",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "2.3": {
+      "testName": "Comparação de Períodos",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "3.1": {
+      "testName": "Relatório de Volume",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "3.2": {
+      "testName": "Relatório de Performance",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "3.3": {
+      "testName": "Relatório de SLA",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "4.1": {
+      "testName": "Relatório de Campanhas",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "4.2": {
+      "testName": "Análise de Conversão",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "5.1": {
+      "testName": "Relatório de Automações",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "5.2": {
+      "testName": "Análise de Impacto",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "6.1": {
+      "testName": "Exportar Relatório",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "6.2": {
+      "testName": "Agendamento de Relatórios",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "7.1": {
+      "testName": "Análise de Tendências",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "7.2": {
+      "testName": "Análise de Correlação",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "8.1": {
+      "testName": "Criar Dashboard",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "8.2": {
+      "testName": "Compartilhar Dashboard",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "9.1": {
+      "testName": "Configurar Alertas",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "9.2": {
+      "testName": "Testar Alerta",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "10.1": {
+      "testName": "Conectar BI Tool",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    },
+    "10.2": {
+      "testName": "Sincronização de Dados",
+      "status": "NOT_RUN",
+      "screenshot": "",
+      "notes": "",
+      "executionTime": ""
+    }
+  },
+  "observations": "",
+  "problems": "",
+  "recommendations": "",
+  "overallStatus": "NOT_STARTED"
+}

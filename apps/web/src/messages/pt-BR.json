@@ -1,0 +1,232 @@
+{
+  "common": {
+    "loading": "Carregando...",
+    "error": "Erro",
+    "success": "Sucesso",
+    "cancel": "Cancelar",
+    "save": "Salvar",
+    "edit": "Editar",
+    "delete": "Excluir",
+    "close": "Fechar",
+    "back": "Voltar",
+    "next": "Próximo",
+    "previous": "Anterior",
+    "search": "Pesquisar",
+    "filter": "Filtrar",
+    "sort": "Ordenar",
+    "refresh": "Atualizar",
+    "more": "Mais",
+    "less": "Menos",
+    "all": "Todos",
+    "none": "Nenhum",
+    "yes": "Sim",
+    "no": "Não",
+    "ok": "OK",
+    "apply": "Aplicar",
+    "reset": "Resetar",
+    "confirm": "Confirmar",
+    "actions": "Ações",
+    "status": "Status",
+    "priority": "Prioridade",
+    "date": "Data",
+    "time": "Hora",
+    "name": "Nome",
+    "description": "Descrição",
+    "type": "Tipo",
+    "category": "Categoria",
+    "tags": "Tags",
+    "notes": "Observações",
+    "attachments": "Anexos",
+    "created": "Criado",
+    "updated": "Atualizado",
+    "createdBy": "Criado por",
+    "updatedBy": "Atualizado por"
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "tickets": "Tickets",
+    "automations": "Automações",
+    "reports": "Relatórios",
+    "settings": "Configurações",
+    "profile": "Perfil",
+    "logout": "Sair",
+    "help": "Ajuda",
+    "support": "Suporte"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "description": "Visão geral do sistema",
+    "stats": {
+      "totalTickets": "Total de Tickets",
+      "openTickets": "Tickets Abertos",
+      "closedTickets": "Tickets Fechados",
+      "avgResponseTime": "Tempo Médio de Resposta",
+      "satisfaction": "Satisfação do Cliente",
+      "automations": "Automações Ativas"
+    },
+    "recentActivity": "Atividade Recente",
+    "quickActions": "Ações Rápidas",
+    "newTicket": "Novo Ticket",
+    "viewReports": "Ver Relatórios"
+  },
+  "tickets": {
+    "title": "Tickets",
+    "description": "Gerenciar tickets de suporte",
+    "newTicket": "Novo Ticket",
+    "searchTickets": "Pesquisar tickets...",
+    "filters": {
+      "status": "Status",
+      "priority": "Prioridade",
+      "assignee": "Responsável",
+      "category": "Categoria",
+      "dateRange": "Período"
+    },
+    "status": {
+      "open": "Aberto",
+      "inProgress": "Em Andamento",
+      "waiting": "Aguardando",
+      "resolved": "Resolvido",
+      "closed": "Fechado"
+    },
+    "priority": {
+      "low": "Baixa",
+      "medium": "Média",
+      "high": "Alta",
+      "urgent": "Urgente"
+    },
+    "empty": {
+      "title": "Nenhum ticket encontrado",
+      "description": "Crie seu primeiro ticket ou ajuste os filtros de busca"
+    }
+  },
+  "automations": {
+    "title": "Automações",
+    "description": "Configurar automações do sistema",
+    "newAutomation": "Nova Automação",
+    "types": {
+      "ticketAssignment": "Atribuição de Ticket",
+      "slaReminder": "Lembrete de SLA",
+      "autoResponse": "Resposta Automática",
+      "escalation": "Escalação",
+      "notification": "Notificação"
+    },
+    "status": {
+      "active": "Ativa",
+      "inactive": "Inativa",
+      "draft": "Rascunho",
+      "testing": "Em Teste"
+    }
+  },
+  "reports": {
+    "title": "Relatórios",
+    "description": "Análises e métricas do sistema",
+    "sla": "Relatórios de SLA",
+    "performance": "Performance",
+    "automations": "Automações",
+    "export": "Exportar",
+    "period": "Período",
+    "generate": "Gerar Relatório"
+  },
+  "settings": {
+    "title": "Configurações",
+    "description": "Configurações do sistema e perfil",
+    "profile": "Perfil do Usuário",
+    "notifications": "Notificações",
+    "businessHours": "Horário Comercial",
+    "sla": "Configurações de SLA",
+    "automations": "Automações",
+    "styleguide": "Guia de Estilo",
+    "general": {
+      "title": "Geral",
+      "description": "Configurações gerais do sistema"
+    },
+    "notifications": {
+      "title": "Notificações",
+      "description": "Configurar notificações e alertas",
+      "general": {
+        "title": "Geral",
+        "description": "Configurações gerais de notificações",
+        "master": "Ativar Notificações",
+        "masterDescription": "Controla todas as notificações do sistema",
+        "desktop": "Notificações Desktop",
+        "desktopDescription": "Receber notificações na área de trabalho",
+        "push": "Notificações Push",
+        "pushDescription": "Receber notificações push no navegador"
+      },
+      "sound": {
+        "title": "Som e Áudio",
+        "description": "Configurar sons de notificação",
+        "select": "Selecionar Som"
+      },
+      "dnd": {
+        "title": "Modo Silencioso",
+        "description": "Configurar horários para não receber notificações",
+        "start": "Início",
+        "end": "Fim"
+      },
+      "test": {
+        "title": "Teste de Notificação",
+        "description": "Testar se as notificações estão funcionando"
+      }
+    }
+  },
+  "chat": {
+    "composer": {
+      "placeholder": "Digite sua mensagem...",
+      "send": "Enviar",
+      "attach": "Anexar arquivo",
+      "emoji": "Emoji",
+      "typing": "Digitando...",
+      "online": "Online",
+      "offline": "Offline"
+    },
+    "message": {
+      "sent": "Enviado",
+      "delivered": "Entregue",
+      "read": "Lido",
+      "failed": "Falhou",
+      "resend": "Reenviar",
+      "delete": "Excluir",
+      "edit": "Editar"
+    },
+    "upload": {
+      "enqueued": "Enfileirado",
+      "sending": "Enviando...",
+      "sent": "Enviado",
+      "error": "Erro",
+      "retry": "Tentar novamente"
+    }
+  },
+  "accessibility": {
+    "skipToContent": "Pular para o conteúdo",
+    "closeModal": "Fechar modal",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu",
+    "expandSection": "Expandir seção",
+    "collapseSection": "Recolher seção",
+    "loading": "Carregando",
+    "error": "Erro",
+    "success": "Sucesso"
+  },
+  "shortcuts": {
+    "title": "Atalhos de Teclado",
+    "description": "Atalhos disponíveis no sistema",
+    "navigation": {
+      "title": "Navegação",
+      "dashboard": "Dashboard",
+      "tickets": "Tickets",
+      "automations": "Automações",
+      "reports": "Relatórios",
+      "settings": "Configurações"
+    },
+    "actions": {
+      "title": "Ações",
+      "search": "Pesquisar",
+      "newTicket": "Novo Ticket",
+      "refresh": "Atualizar",
+      "close": "Fechar",
+      "save": "Salvar"
+    },
+    "close": "Fechar"
+  }
+}
