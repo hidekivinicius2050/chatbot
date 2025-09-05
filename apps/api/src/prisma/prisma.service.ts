@@ -13,16 +13,21 @@ export interface TenantContext {
 // AsyncLocalStorage para manter contexto por request
 export const tenantStorage = new AsyncLocalStorage<TenantContext>();
 
-@Injectable({ scope: Scope.REQUEST })
+@Injectable()
 export class PrismaService extends PrismaClient implements OnModuleInit, OnModuleDestroy {
   private readonly logger = new Logger(PrismaService.name);
+  private static instance: PrismaService;
+  private static isConnected = false;
 
   constructor() {
+    // Singleton pattern para evitar múltiplas instâncias
+    if (PrismaService.instance && PrismaService.isConnected) {
+      return PrismaService.instance;
+    }
+
     super({
       log: [
-        { emit: 'event', level: 'info' },
-        { emit: 'event', level: 'warn' },
-        { emit: 'event', level: 'error' },
+        { emit: 'event', level: 'error' }, // Apenas erros para reduzir logs
       ],
       errorFormat: 'pretty',
       // Configurações para Neon + pgbouncer
@@ -32,6 +37,8 @@ export class PrismaService extends PrismaClient implements OnModuleInit, OnModul
         },
       },
     });
+
+    PrismaService.instance = this;
 
     // Middleware para multitenancy automático
     this.$use(async (params: any, next: any) => {
@@ -65,8 +72,14 @@ export class PrismaService extends PrismaClient implements OnModuleInit, OnModul
   }
 
   async onModuleInit() {
+    // Evitar múltiplas conexões
+    if (PrismaService.isConnected) {
+      return;
+    }
+
     try {
       await this.$connect();
+      PrismaService.isConnected = true;
       this.logger.log('✅ Prisma conectado ao banco de dados Neon');
       
       // Teste de conexão
@@ -75,6 +88,7 @@ export class PrismaService extends PrismaClient implements OnModuleInit, OnModul
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Erro desconhecido';
       this.logger.error(`❌ Erro ao conectar ao banco: ${errorMessage}`);
+      PrismaService.isConnected = false;
       // Em desenvolvimento, não falha a aplicação
       if (process.env.NODE_ENV === 'production') {
         throw error;
@@ -85,6 +99,18 @@ export class PrismaService extends PrismaClient implements OnModuleInit, OnModul
   async onModuleDestroy() {
     await this.$disconnect();
     this.logger.log('Prisma desconectado do banco de dados');
+    PrismaService.instance = null as any;
+    PrismaService.isConnected = false;
+  }
+
+  // Método para limpar conexões em caso de erro
+  async cleanup() {
+    try {
+      await this.$disconnect();
+      this.logger.log('Conexões do Prisma limpas');
+    } catch (error) {
+      this.logger.error('Erro ao limpar conexões do Prisma:', error);
+    }
   }
 
   private shouldApplyTenantFilter(model: string): boolean {

@@ -166,6 +166,72 @@ async function main() {
 
   console.log('✅ Tickets criados');
 
+  // Criar canais WhatsApp para Demo
+  const whatsappChannel1 = await prisma.channel.upsert({
+    where: { id: 'channel-whatsapp-1' },
+    update: {},
+    create: {
+      id: 'channel-whatsapp-1',
+      name: 'WhatsApp Principal',
+      type: 'whatsapp_baileys',
+      status: 'connected',
+      externalId: '+5511999999999',
+      companyId: company.id,
+      config: {
+        sessionId: 'whatsapp-session-1',
+        qrCode: null,
+        isConnected: true,
+        lastSeen: new Date(),
+        phoneNumber: '+5511999999999',
+        businessName: 'Demo Company',
+      },
+    },
+  });
+
+  const whatsappChannel2 = await prisma.channel.upsert({
+    where: { id: 'channel-whatsapp-2' },
+    update: {},
+    create: {
+      id: 'channel-whatsapp-2',
+      name: 'WhatsApp Vendas',
+      type: 'whatsapp_baileys',
+      status: 'disconnected',
+      externalId: '+5511888888888',
+      companyId: company.id,
+      config: {
+        sessionId: 'whatsapp-session-2',
+        qrCode: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==',
+        isConnected: false,
+        lastSeen: null,
+        phoneNumber: '+5511888888888',
+        businessName: 'Demo Vendas',
+      },
+    },
+  });
+
+  const telegramChannel = await prisma.channel.upsert({
+    where: { id: 'channel-telegram-1' },
+    update: {},
+    create: {
+      id: 'channel-telegram-1',
+      name: 'Telegram Suporte',
+      type: 'telegram',
+      status: 'connected',
+      externalId: '@demo_suporte',
+      companyId: company.id,
+      config: {
+        botToken: 'mock-bot-token',
+        webhookUrl: 'https://api.telegram.org/bot/mock-bot-token/setWebhook',
+        isConnected: true,
+        lastSeen: new Date(),
+        phoneNumber: '@demo_suporte',
+        businessName: 'Demo Telegram',
+      },
+    },
+  });
+
+  console.log('✅ Canais criados');
+
   // Criar mensagens para os tickets
   await prisma.message.createMany({
     data: [

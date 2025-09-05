@@ -94,4 +94,42 @@ export class ChannelsService {
       where: { type, companyId },
     });
   }
+
+  async getChannelStats(channelId: string, companyId: string) {
+    // Verificar se o canal existe
+    const channel = await this.prisma.channel.findFirst({
+      where: { id: channelId, companyId },
+    });
+
+    if (!channel) {
+      throw new NotFoundException('Canal não encontrado');
+    }
+
+    // TODO: Implementar estatísticas reais baseadas em mensagens
+    // Por enquanto, retornar dados simulados
+    return {
+      channelId,
+      totalMessages: 0,
+      sentMessages: 0,
+      receivedMessages: 0,
+      uniqueContacts: 0,
+      avgResponseTime: '0s',
+      uptime: '0%',
+      lastActivity: null,
+      period: {
+        start: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000), // 30 dias atrás
+        end: new Date(),
+      },
+      // Estatísticas por dia (últimos 7 dias)
+      dailyStats: [
+        { date: new Date(Date.now() - 6 * 24 * 60 * 60 * 1000), messages: 0 },
+        { date: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000), messages: 0 },
+        { date: new Date(Date.now() - 4 * 24 * 60 * 60 * 1000), messages: 0 },
+        { date: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000), messages: 0 },
+        { date: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000), messages: 0 },
+        { date: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000), messages: 0 },
+        { date: new Date(), messages: 0 },
+      ],
+    };
+  }
 }

@@ -95,7 +95,7 @@ export default function HelpCenterPage() {
           Centro de Ajuda
         </h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          Encontre respostas para suas dúvidas e aprenda a usar todas as funcionalidades do AtendeChat
+          Encontre respostas para suas dúvidas e aprenda a usar todas as funcionalidades do Chatbot
         </p>
       </div>
 

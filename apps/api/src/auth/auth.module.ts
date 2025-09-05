@@ -13,7 +13,7 @@ import { TenantInterceptor } from '../prisma/tenant.interceptor';
 
 @Module({
   imports: [
-    PassportModule,
+    PassportModule.register({ defaultStrategy: 'jwt' }),
     JwtModule.register({
       secret: process.env.JWT_SECRET || 'dev-secret',
       signOptions: {
@@ -34,6 +34,6 @@ import { TenantInterceptor } from '../prisma/tenant.interceptor';
       useClass: TenantInterceptor,
     },
   ],
-  exports: [AuthService, CryptoService],
+  exports: [AuthService, CryptoService, JwtStrategy],
 })
 export class AuthModule {}

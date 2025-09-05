@@ -1,11 +1,11 @@
-import { config } from '@atendechat/config'
+import { config } from '@chatbot/config'
 import { logger } from './logger'
 import { createQueues } from './queues'
 import { startWorkers } from './workers'
 
 async function main() {
   try {
-    logger.info('Iniciando Atendechat Worker...')
+    logger.info('Iniciando ChatBot Worker...')
     
     // Configurar filas
     const queues = await createQueues()
@@ -15,7 +15,7 @@ async function main() {
     await startWorkers(queues)
     logger.info('Workers iniciados com sucesso')
     
-    logger.info('Worker Atendechat rodando!')
+    logger.info('Worker ChatBot rodando!')
     
     // Graceful shutdown
     process.on('SIGTERM', async () => {

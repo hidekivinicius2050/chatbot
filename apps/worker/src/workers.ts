@@ -1,5 +1,5 @@
 import { Worker } from 'bullmq'
-import { config } from '@atendechat/config'
+import { config } from '@chatbot/config'
 import { logger } from './logger'
 import { QueueConfig } from './queues'
 
@@ -23,11 +23,7 @@ export async function startWorkers(queues: QueueConfig[]): Promise<void> {
         return { success: true, messageId }
       },
       {
-        connection: {
-          host: config.redis.host,
-          port: config.redis.port,
-          password: config.redis.password,
-        },
+        connection: config.redis.url,
         concurrency: 5,
       }
     )
@@ -58,11 +54,7 @@ export async function startWorkers(queues: QueueConfig[]): Promise<void> {
         return { success: true, fileId, processedAt: new Date() }
       },
       {
-        connection: {
-          host: config.redis.host,
-          port: config.redis.port,
-          password: config.redis.password,
-        },
+        connection: config.redis.url,
         concurrency: 3,
       }
     )
@@ -93,11 +85,7 @@ export async function startWorkers(queues: QueueConfig[]): Promise<void> {
         return { success: true, channelId, syncedAt: new Date() }
       },
       {
-        connection: {
-          host: config.redis.host,
-          port: config.redis.port,
-          password: config.redis.password,
-        },
+        connection: config.redis.url,
         concurrency: 2,
       }
     )

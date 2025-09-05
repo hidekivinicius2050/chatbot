@@ -6,17 +6,16 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
-import { LanguageSwitcher } from "@/components/ui/language-switcher"
-import { useI18n } from "@/hooks/use-i18n"
+import { useTheme } from "@/contexts/ThemeContext"
 import { 
   Menu, 
   Search, 
-  Bell, 
   User,
   Moon,
   Sun,
   ChevronRight
-} from "lucide-react"
+} from 'lucide-react'
+import { NotificationBell } from '@/components/ui/notifications'
 
 interface TopbarProps {
   onMenuClick: () => void
@@ -24,8 +23,7 @@ interface TopbarProps {
 
 export function Topbar({ onMenuClick }: TopbarProps) {
   const pathname = usePathname()
-  const { t } = useI18n()
-  const [theme, setTheme] = useState<"light" | "dark">("dark")
+  const { theme, toggleTheme } = useTheme()
   const [searchQuery, setSearchQuery] = useState("")
 
   // Generate breadcrumbs from pathname
@@ -38,11 +36,6 @@ export function Topbar({ onMenuClick }: TopbarProps) {
       isLast: index === array.length - 1,
     }))
 
-  const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark")
-    document.documentElement.classList.toggle("dark")
-  }
-
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
     // TODO: Implement global search
@@ -51,7 +44,12 @@ export function Topbar({ onMenuClick }: TopbarProps) {
 
   return (
     <header 
-      className="h-16 border-b border-border bg-card px-6 flex items-center justify-between"
+      className={cn(
+        "h-16 border-b px-6 flex items-center justify-between transition-colors duration-200",
+        theme === 'dark' 
+          ? "border-gray-700 bg-gray-900" 
+          : "border-gray-200 bg-white"
+      )}
       role="banner"
       aria-label="Barra superior de navegação"
     >
@@ -61,8 +59,13 @@ export function Topbar({ onMenuClick }: TopbarProps) {
           variant="ghost"
           size="icon"
           onClick={onMenuClick}
-          className="lg:hidden"
-          aria-label={t('accessibility.openMenu')}
+          className={cn(
+            "transition-colors duration-200",
+            theme === 'dark'
+              ? "text-white hover:bg-gray-800 hover:text-blue-400"
+              : "text-gray-900 hover:bg-gray-100 hover:text-blue-600"
+          )}
+          aria-label="Abrir menu"
         >
           <Menu className="h-5 w-5" />
         </Button>
@@ -72,12 +75,21 @@ export function Topbar({ onMenuClick }: TopbarProps) {
           className="hidden md:flex items-center gap-2 text-sm"
           aria-label="Navegação por migalhas"
         >
-          <span className="text-muted-foreground">AtendeChat</span>
+          <span className={cn(
+            theme === 'dark' ? "text-blue-400" : "text-blue-600"
+          )}>
+            Chatbot
+          </span>
           {breadcrumbs.map((crumb, index) => (
             <div key={crumb.href} className="flex items-center gap-2">
-              <ChevronRight className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
+              <ChevronRight className={cn(
+                "h-4 w-4",
+                theme === 'dark' ? "text-gray-400" : "text-gray-500"
+              )} aria-hidden="true" />
               <span className={cn(
-                crumb.isLast ? "text-foreground font-medium" : "text-muted-foreground"
+                crumb.isLast 
+                  ? (theme === 'dark' ? "text-white font-medium" : "text-gray-900 font-medium")
+                  : (theme === 'dark' ? "text-gray-400" : "text-gray-500")
               )}>
                 {crumb.name}
               </span>
@@ -89,16 +101,29 @@ export function Topbar({ onMenuClick }: TopbarProps) {
       {/* Center section - Search */}
       <div className="flex-1 max-w-md mx-8">
         <form onSubmit={handleSearch} className="relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" aria-hidden="true" />
+          <Search className={cn(
+            "absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4",
+            theme === 'dark' ? "text-gray-400" : "text-gray-500"
+          )} aria-hidden="true" />
           <Input
-            placeholder={t('common.search')}
+            placeholder="Buscar..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-10 pr-4"
-            aria-label={t('common.search')}
+            className={cn(
+              "pl-10 pr-4 transition-colors duration-200",
+              theme === 'dark'
+                ? "bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-500 focus:ring-blue-500"
+                : "bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-500 focus:border-blue-500 focus:ring-blue-500"
+            )}
+            aria-label="Buscar"
           />
           <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
-            <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground">
+            <kbd className={cn(
+              "pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border px-1.5 font-mono text-[10px] font-medium transition-colors duration-200",
+              theme === 'dark'
+                ? "bg-gray-700 text-gray-300 border-gray-600"
+                : "bg-gray-100 text-gray-600 border-gray-300"
+            )}>
               <span className="text-xs">/</span>
             </kbd>
           </div>
@@ -107,32 +132,21 @@ export function Topbar({ onMenuClick }: TopbarProps) {
 
       {/* Right section */}
       <div className="flex items-center gap-3">
-        {/* Language Switcher */}
-        <LanguageSwitcher />
-
         {/* Notifications */}
-        <Button 
-          variant="ghost" 
-          size="icon" 
-          className="relative"
-          aria-label="Notificações"
-        >
-          <Bell className="h-5 w-5" />
-          <Badge 
-            variant="destructive" 
-            className="absolute -top-1 -right-1 h-5 w-5 rounded-full p-0 flex items-center justify-center text-xs"
-            aria-label="3 notificações não lidas"
-          >
-            3
-          </Badge>
-        </Button>
+        <NotificationBell />
 
         {/* Theme toggle */}
         <Button 
           variant="ghost" 
           size="icon" 
           onClick={toggleTheme}
-          aria-label={t('accessibility.toggleTheme')}
+          className={cn(
+            "transition-colors duration-200",
+            theme === 'dark'
+              ? "text-white hover:bg-gray-800 hover:text-blue-400"
+              : "text-gray-900 hover:bg-gray-100 hover:text-blue-600"
+          )}
+          aria-label="Alternar tema"
         >
           {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
         </Button>
@@ -141,6 +155,12 @@ export function Topbar({ onMenuClick }: TopbarProps) {
         <Button 
           variant="ghost" 
           size="icon"
+          className={cn(
+            "transition-colors duration-200",
+            theme === 'dark'
+              ? "text-white hover:bg-gray-800 hover:text-blue-400"
+              : "text-gray-900 hover:bg-gray-100 hover:text-blue-600"
+          )}
           aria-label="Menu do usuário"
         >
           <User className="h-5 w-5" />

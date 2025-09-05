@@ -13,13 +13,13 @@ import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth } from '@nestjs/swagg
 import { MessagesService } from './messages.service';
 import { CreateMessageDto } from './dto/create-message.dto';
 import { QueryMessagesDto } from './dto/query-messages.dto';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { DevAuthGuard } from '../auth/guards/dev-auth.guard';
 import { QuotaGuard } from '../billing/guards/quota.guard';
 import { RequireQuota } from '../billing/decorators/quota.decorator';
 
 @ApiTags('Messages')
 @Controller('tickets/:ticketId/messages')
-@UseGuards(JwtAuthGuard)
+@UseGuards(DevAuthGuard)
 @ApiBearerAuth()
 export class MessagesController {
   constructor(private readonly messagesService: MessagesService) {}

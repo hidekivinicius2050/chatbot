@@ -1,4 +1,4 @@
-import { Queue, Worker, QueueScheduler } from "bullmq";
+import { Queue, Worker } from "bullmq";
 import { redis } from "./redis";
 import { logger } from './logger'
 
@@ -72,9 +72,7 @@ export async function createQueues(): Promise<QueueConfig[]> {
       close: () => channelSyncQueue.close(),
     })
     
-    // Schedulers ajudam com jobs atrasados/retries
-    new QueueScheduler("messages", { connection: redis });
-    new QueueScheduler("uploads", { connection: redis });
+    // Schedulers removidos - são automáticos no BullMQ moderno
     
     // Exemplo de worker (mantenha/adeque aos seus handlers)
     new Worker(

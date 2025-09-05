@@ -1,7 +1,7 @@
 {
-  "name": "@atendechat/core",
+  "name": "@chatbot/core",
   "version": "1.0.0",
-  "description": "Core utilities and prompts for AtendeChat",
+  "description": "Core utilities and prompts for ChatBot",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

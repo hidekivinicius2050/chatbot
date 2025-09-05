@@ -3,7 +3,31 @@ import { Logger } from '@nestjs/common';
 import type { Job } from 'bull';
 import { PrismaService } from '../../prisma/prisma.service';
 import { MessagingService } from '../../messaging/messaging.service';
-import { CampaignsGateway, CampaignProgressEvent, CampaignFinishedEvent } from '../campaigns.gateway';
+import { CampaignsGateway } from '../campaigns.gateway';
+
+export interface CampaignProgressEvent {
+  campaignId: string;
+  companyId: string;
+  totalTargets: number;
+  processedCount: number;
+  successCount: number;
+  failureCount: number;
+  optOutCount: number;
+  progress: number; // 0-100
+  estimatedTimeRemaining?: number; // in seconds
+}
+
+export interface CampaignFinishedEvent {
+  campaignId: string;
+  companyId: string;
+  status: 'completed' | 'failed' | 'cancelled';
+  totalTargets: number;
+  successCount: number;
+  failureCount: number;
+  optOutCount: number;
+  duration: number; // in seconds
+  error?: string;
+}
 
 export interface SendMessageJob {
   targetId: string;
@@ -199,7 +223,7 @@ export class CampaignSenderWorker {
         ...(estimatedTimeRemaining !== undefined && { estimatedTimeRemaining }),
       };
 
-      await this.campaignsGateway.emitCampaignProgress(progressEvent);
+      this.campaignsGateway.emitCampaignProgress(campaignId, progressEvent);
     } catch (error) {
       this.logger.error('Failed to emit progress event:', error);
     }
@@ -251,7 +275,7 @@ export class CampaignSenderWorker {
       });
 
       // Emit finished event
-      await this.campaignsGateway.emitCampaignFinished(finishedEvent);
+      this.campaignsGateway.emitCampaignUpdate(campaignId, finishedEvent);
       
       this.logger.log(`Campaign ${campaignId} completed successfully`);
 

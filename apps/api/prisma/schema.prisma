@@ -7,8 +7,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url = env("DATABASE_URL")          // Neon pooler: ?sslmode=require&pgbouncer=true
-  directUrl = env("DIRECT_DATABASE_URL")   // Neon primary: ?sslmode=require
+  url = env("DATABASE_URL")
 }
 
 enum Role {
@@ -38,6 +37,7 @@ model Company {
   slaPolicy    SlaPolicy?
   automations  Automation[]
   automationRuns AutomationRun[]
+  flows        Flow[]
   ticketSlas   TicketSla[]
   metricDailies MetricDaily[]
   auditLogs    AuditLog[]
@@ -328,6 +328,21 @@ model Automation {
   company    Company  @relation(fields: [companyId], references: [id])
   runs       AutomationRun[]
   @@index([companyId, enabled])
+}
+
+model Flow {
+  id          String   @id @default(cuid())
+  companyId   String
+  name        String
+  description String
+  status      String   @default("draft") // "draft" | "active" | "paused"
+  type        String   // "support" | "sales" | "appointment" | "marketing"
+  steps       Json     // Estrutura dos passos do fluxo
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  company     Company  @relation(fields: [companyId], references: [id])
+  @@index([companyId, status])
+  @@index([companyId, type])
 }
 
 model AutomationRun {
@@ -713,7 +728,7 @@ model KBChunk {
   content     String
   tokenCount  Int
   // Embedding pgvector (1536 dims p/ text-embedding-3-small)
-  embedding   Unsupported("vector")
+  // embedding   Unsupported("vector") // Temporariamente comentado para setup inicial
   createdAt   DateTime @default(now())
   article     KBArticle @relation(fields: [articleId], references: [id])
   kb          KnowledgeBase @relation(fields: [kbId], references: [id])
@@ -777,6 +792,111 @@ model DsrRequest {
   updatedAt  DateTime @updatedAt
   company    Company  @relation(fields: [companyId], references: [id])
   @@index([companyId, kind, status, createdAt])
+}
+
+// ===== IPTV Integration =====
+model TestUser {
+  id            String   @id @default(cuid())
+  phoneNumber   String
+  name          String?
+  iptvUsername  String
+  iptvPassword  String
+  expirationDate DateTime
+  status        String   @default("active") // "active" | "expired" | "cancelled"
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  @@index([phoneNumber, status])
+  @@index([iptvUsername])
+  @@index([expirationDate])
+}
+
+// ===== ChatGPT Integration =====
+model ChatGPTProfile {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String?
+  systemPrompt String
+  temperature Float    @default(0.7)
+  maxTokens   Int      @default(1000)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relacionamentos
+  flowNodes   FlowNode[]
+  
+  @@index([name])
+  @@index([isActive])
+}
+
+model FlowNode {
+  id              String   @id @default(cuid())
+  name            String
+  description     String?
+  nodeType        String   // "chatgpt" | "message" | "condition" | "action"
+  position        Json     // { x: number, y: number }
+  config          Json     // Configurações específicas do nó
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  // Relacionamentos
+  flowId          String
+  flow            Flow     @relation(fields: [flowId], references: [id], onDelete: Cascade)
+  chatgptProfileId String?
+  chatgptProfile  ChatGPTProfile? @relation(fields: [chatgptProfileId], references: [id])
+  
+  // Conexões
+  connections     FlowConnection[] @relation("FromNode")
+  incomingConnections FlowConnection[] @relation("ToNode")
+  
+  @@index([flowId])
+  @@index([nodeType])
+  @@index([isActive])
+}
+
+model FlowConnection {
+  id        String   @id @default(cuid())
+  fromNodeId String
+  fromNode  FlowNode @relation("FromNode", fields: [fromNodeId], references: [id], onDelete: Cascade)
+  toNodeId   String
+  toNode    FlowNode @relation("ToNode", fields: [toNodeId], references: [id], onDelete: Cascade)
+  condition String?  // Condição para a conexão (ex: "LG", "Samsung")
+  createdAt DateTime @default(now())
+  
+  @@unique([fromNodeId, toNodeId])
+  @@index([fromNodeId])
+  @@index([toNodeId])
+}
+
+model Flow {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relacionamentos
+  nodes       FlowNode[]
+  
+  @@index([name])
+  @@index([isActive])
+}
+
+// ===== TV Brand Detection =====
+model TVBrand {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  aliases     String[] // ["lg", "Lg", "LG", "1"]
+  instructions Json    // Instruções específicas para a marca
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@index([name])
+  @@index([isActive])
 }
 
 // ===== Relacionamentos Company =====

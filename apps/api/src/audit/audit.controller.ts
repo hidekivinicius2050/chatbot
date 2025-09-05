@@ -4,54 +4,34 @@ import {
   Query,
   UseGuards,
   Request,
-  Logger,
 } from '@nestjs/common';
-import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth } from '@nestjs/swagger';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { DevAuthGuard } from '../auth/guards/dev-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/guards/roles.guard';
-import { Role } from '@prisma/client';
+import { ApiTags, ApiBearerAuth, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { AuditService } from './audit.service';
-import { AuditQueryDto } from './dto/audit.dto';
+// import { QueryAuditDto } from './dto/query-audit.dto';
 
-@ApiTags('Audit')
-@Controller('api/v1/audit')
-@UseGuards(JwtAuthGuard, RolesGuard)
+@ApiTags('audit')
+@Controller('audit')
+@UseGuards(DevAuthGuard, RolesGuard)
 @ApiBearerAuth()
 export class AuditController {
-  private readonly logger = new Logger(AuditController.name);
-
   constructor(private readonly auditService: AuditService) {}
 
   @Get()
-  @Roles(Role.OWNER, Role.ADMIN)
+  @Roles('ADMIN', 'OWNER')
   @ApiOperation({ summary: 'Listar logs de auditoria' })
-  @ApiResponse({
-    status: 200,
-    description: 'Lista de logs de auditoria paginada',
-  })
-  @ApiResponse({ status: 403, description: 'Acesso negado' })
-  async findMany(@Query() query: AuditQueryDto, @Request() req: any) {
-    this.logger.debug(`Fetching audit logs for company ${req.companyId}`);
-    
-    return this.auditService.findMany(req.companyId, query);
+  @ApiResponse({ status: 200, description: 'Logs de auditoria obtidos' })
+  findAll(@Query() query: any, @Request() req: any) {
+    return this.auditService.findMany(req.user.companyId, query);
   }
 
   @Get('stats')
-  @Roles(Role.OWNER, Role.ADMIN)
-  @ApiOperation({ summary: 'Estatísticas de auditoria' })
-  @ApiResponse({
-    status: 200,
-    description: 'Estatísticas dos logs de auditoria',
-  })
-  @ApiResponse({ status: 403, description: 'Acesso negado' })
-  async getStats(
-    @Query('from') from?: string,
-    @Query('to') to?: string,
-    @Request() req?: any,
-  ) {
-    this.logger.debug(`Fetching audit stats for company ${req.companyId}`);
-    
-    return this.auditService.getStats(req.companyId, from, to);
+  @Roles('ADMIN', 'OWNER')
+  @ApiOperation({ summary: 'Obter estatísticas de auditoria' })
+  @ApiResponse({ status: 200, description: 'Estatísticas obtidas' })
+  getStats(@Request() req: any) {
+    return this.auditService.getStats(req.user.companyId);
   }
 }

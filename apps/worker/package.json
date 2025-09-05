@@ -1,5 +1,5 @@
 {
-  "name": "@atendechat/worker",
+  "name": "@chatbot/worker",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -13,9 +13,9 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@atendechat/config": "workspace:*",
-    "@atendechat/core": "workspace:*",
-    "@atendechat/providers": "workspace:*",
+    "@chatbot/config": "workspace:*",
+    "@chatbot/core": "workspace:*",
+    "@chatbot/providers": "workspace:*",
     "bullmq": "^5.1.0",
     "ioredis": "^5.3.2",
     "pino": "^8.17.2",

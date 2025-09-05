@@ -9,114 +9,82 @@ import {
   Query,
   UseGuards,
   Request,
-  HttpCode,
-  HttpStatus,
 } from '@nestjs/common';
-import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth } from '@nestjs/swagger';
+import { DevAuthGuard } from '../auth/guards/dev-auth.guard';
+import { RolesGuard } from '../auth/guards/roles.guard';
+import { Roles } from '../auth/guards/roles.guard';
+import { ApiTags, ApiBearerAuth, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { AutomationsService } from './automations.service';
-import { CreateAutomationDto, UpdateAutomationDto, QueryAutomationsDto, TestAutomationDto } from './dto/automation.dto';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
-import { RolesGuard, Roles } from '../auth/guards/roles.guard';
-import { FeatureGuard } from '../billing/guards/feature.guard';
-// import { RequireFeature } from '../billing/decorators/require-feature.decorator';
+// import { CreateAutomationDto } from './dto/create-automation.dto';
+// import { UpdateAutomationDto } from './dto/update-automation.dto';
+// import { QueryAutomationsDto } from './dto/query-automations.dto';
 
-@ApiTags('Automations')
-@Controller('api/v1/automations')
-@UseGuards(JwtAuthGuard, RolesGuard)
+@ApiTags('automations')
+@Controller('automations')
+@UseGuards(DevAuthGuard, RolesGuard)
 @ApiBearerAuth()
 export class AutomationsController {
   constructor(private readonly automationsService: AutomationsService) {}
 
   @Post()
-  // @UseGuards(FeatureGuard)
-  // @RequireFeature('feature.automations')
-  @Roles('OWNER', 'ADMIN')
-  @ApiOperation({ summary: 'Create a new automation' })
-  @ApiResponse({ status: 201, description: 'Automation created successfully' })
-  @ApiResponse({ status: 400, description: 'Invalid automation data' })
-  @ApiResponse({ status: 403, description: 'Feature not available in current plan' })
-  async create(
-    @Body() createAutomationDto: CreateAutomationDto,
-    @Request() req: any,
-  ) {
-    const companyId = req.user.companyId;
-    const userId = req.user.id;
-    return this.automationsService.create(createAutomationDto, companyId, userId);
+  @Roles('ADMIN', 'OWNER')
+  @ApiOperation({ summary: 'Criar nova automação' })
+  @ApiResponse({ status: 201, description: 'Automação criada com sucesso' })
+  @ApiResponse({ status: 400, description: 'Dados inválidos' })
+  create(@Body() createAutomationDto: any, @Request() req: any) {
+    return this.automationsService.create(createAutomationDto, req.user.companyId, req.user.id);
   }
 
   @Get()
-  @Roles('OWNER', 'ADMIN', 'AGENT')
-  @ApiOperation({ summary: 'Get all automations with pagination' })
-  @ApiResponse({ status: 200, description: 'Automations retrieved successfully' })
-  async findAll(
-    @Query() query: QueryAutomationsDto,
-    @Request() req: any,
-  ) {
-    const companyId = req.user.companyId;
-    return this.automationsService.findAll(query, companyId);
+  @ApiOperation({ summary: 'Listar automações' })
+  @ApiResponse({ status: 200, description: 'Lista de automações' })
+  findAll(@Query() query: any, @Request() req: any) {
+    return this.automationsService.findAll(query, req.user.companyId);
   }
 
   @Get('stats')
-  @Roles('OWNER', 'ADMIN')
-  @ApiOperation({ summary: 'Get automation statistics' })
-  @ApiResponse({ status: 200, description: 'Statistics retrieved successfully' })
-  async getStats(@Request() req: any) {
-    const companyId = req.user.companyId;
-    return this.automationsService.getStats(companyId);
+  @ApiOperation({ summary: 'Obter estatísticas das automações' })
+  @ApiResponse({ status: 200, description: 'Estatísticas obtidas com sucesso' })
+  getStats(@Request() req: any) {
+    return this.automationsService.getStats(req.user.companyId);
   }
 
   @Get(':id')
-  @Roles('OWNER', 'ADMIN', 'AGENT')
-  @ApiOperation({ summary: 'Get automation by ID' })
-  @ApiResponse({ status: 200, description: 'Automation retrieved successfully' })
-  @ApiResponse({ status: 404, description: 'Automation not found' })
-  async findOne(
-    @Param('id') id: string,
-    @Request() req: any,
-  ) {
-    const companyId = req.user.companyId;
-    return this.automationsService.findOne(id, companyId);
+  @ApiOperation({ summary: 'Buscar automação por ID' })
+  @ApiResponse({ status: 200, description: 'Automação encontrada' })
+  @ApiResponse({ status: 404, description: 'Automação não encontrada' })
+  findOne(@Param('id') id: string, @Request() req: any) {
+    return this.automationsService.findOne(id, req.user.companyId);
   }
 
   @Patch(':id')
-  @Roles('OWNER', 'ADMIN')
-  @ApiOperation({ summary: 'Update automation' })
-  @ApiResponse({ status: 200, description: 'Automation updated successfully' })
-  @ApiResponse({ status: 404, description: 'Automation not found' })
-  async update(
+  @Roles('ADMIN', 'OWNER')
+  @ApiOperation({ summary: 'Atualizar automação' })
+  @ApiResponse({ status: 200, description: 'Automação atualizada' })
+  @ApiResponse({ status: 404, description: 'Automação não encontrada' })
+  update(
     @Param('id') id: string,
-    @Body() updateAutomationDto: UpdateAutomationDto,
+    @Body() updateAutomationDto: any,
     @Request() req: any,
   ) {
-    const companyId = req.user.companyId;
-    return this.automationsService.update(id, updateAutomationDto, companyId);
+    return this.automationsService.update(id, updateAutomationDto, req.user.companyId);
   }
 
   @Delete(':id')
-  @Roles('OWNER', 'ADMIN')
-  @HttpCode(HttpStatus.NO_CONTENT)
-  @ApiOperation({ summary: 'Delete automation' })
-  @ApiResponse({ status: 204, description: 'Automation deleted successfully' })
-  @ApiResponse({ status: 404, description: 'Automation not found' })
-  async remove(
-    @Param('id') id: string,
-    @Request() req: any,
-  ) {
-    const companyId = req.user.companyId;
-    await this.automationsService.remove(id, companyId);
+  @Roles('ADMIN', 'OWNER')
+  @ApiOperation({ summary: 'Remover automação' })
+  @ApiResponse({ status: 200, description: 'Automação removida' })
+  @ApiResponse({ status: 404, description: 'Automação não encontrada' })
+  remove(@Param('id') id: string, @Request() req: any) {
+    return this.automationsService.remove(id, req.user.companyId);
   }
 
   @Post(':id/test')
-  @Roles('OWNER', 'ADMIN')
-  @ApiOperation({ summary: 'Test automation with mock event' })
-  @ApiResponse({ status: 200, description: 'Automation test completed' })
-  @ApiResponse({ status: 404, description: 'Automation not found' })
-  async test(
-    @Param('id') id: string,
-    @Body() testAutomationDto: TestAutomationDto,
-    @Request() req: any,
-  ) {
-    const companyId = req.user.companyId;
-    return this.automationsService.test(id, testAutomationDto, companyId);
+  @Roles('ADMIN', 'OWNER')
+  @ApiOperation({ summary: 'Testar automação' })
+  @ApiResponse({ status: 200, description: 'Automação testada com sucesso' })
+  @ApiResponse({ status: 404, description: 'Automação não encontrada' })
+  test(@Param('id') id: string, @Request() req: any) {
+    return this.automationsService.test(id, { eventMock: { test: 'test' } }, req.user.companyId || 'dev-company-id');
   }
 }

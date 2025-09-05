@@ -18,12 +18,18 @@ import { HealthModule } from './health/health.module';
 import { MessagingModule } from './messaging/messaging.module';
 import { CampaignsModule } from './campaigns/campaigns.module';
 import { AutomationsModule } from './automations/automations.module';
+import { FlowsModule } from './flows/flows.module';
 import { SettingsModule } from './settings/settings.module';
 import { AuditModule } from './audit/audit.module';
+import { ChatModule } from './chat/chat.module';
 // import { ReportsModule } from './reports/reports.module';
 import { BillingModule } from './billing/billing.module';
-import { ComplianceModule } from './compliance/compliance.module';
-import { PluginsModule } from './plugins/plugins.module';
+import { IPTVModule } from './iptv/iptv.module';
+import { WebhooksModule } from './webhooks/webhooks.module';
+import { ChatGPTModule } from './chatgpt/chatgpt.module';
+import { TVBrandsModule } from './tv-brands/tv-brands.module';
+// import { ComplianceModule } from './compliance/compliance.module';
+// import { PluginsModule } from './plugins/plugins.module';
 import { AuditInterceptor } from './audit/audit.interceptor';
 
 @Module({
@@ -76,12 +82,18 @@ import { AuditInterceptor } from './audit/audit.interceptor';
     MessagingModule,
     CampaignsModule,
     AutomationsModule,
+    FlowsModule,
     SettingsModule,
     AuditModule,
+    ChatModule,
     // ReportsModule, // Comentado temporariamente devido a dependências faltantes
     BillingModule,
-    ComplianceModule,
-    PluginsModule,
+    IPTVModule,
+    WebhooksModule,
+    ChatGPTModule,
+    TVBrandsModule,
+    // ComplianceModule, // Comentado temporariamente devido a dependências faltantes
+    // PluginsModule, // Comentado temporariamente devido a dependências faltantes
   ],
   controllers: [],
   providers: [

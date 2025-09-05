@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -13,60 +13,34 @@ import {
   Plus,
   Clock,
   User,
-  Calendar
+  Calendar,
+  Loader2
 } from "lucide-react"
-
-// Mock data - será substituído por API real
-const mockTickets = [
-  {
-    id: "1234",
-    title: "Problema com login no app",
-    status: "open" as const,
-    priority: "high" as const,
-    customer: "João Silva",
-    agent: "Maria Santos",
-    lastMessage: "2 min atrás",
-    messages: 8,
-    sla: "normal" as const,
-    slaTime: "2h restantes",
-  },
-  {
-    id: "1235",
-    title: "Dúvida sobre faturamento",
-    status: "pending" as const,
-    priority: "medium" as const,
-    customer: "Ana Costa",
-    agent: "João Silva",
-    lastMessage: "15 min atrás",
-    messages: 5,
-    sla: "warning" as const,
-    slaTime: "30m restantes",
-  },
-  {
-    id: "1236",
-    title: "Erro ao fazer upload",
-    status: "closed" as const,
-    priority: "low" as const,
-    customer: "Pedro Santos",
-    agent: "Maria Santos",
-    lastMessage: "1h atrás",
-    messages: 12,
-    sla: "normal" as const,
-    slaTime: "Resolvido",
-  },
-]
-
-const statusFilters = [
-  { value: "all", label: "Todos", count: mockTickets.length },
-  { value: "open", label: "Abertos", count: mockTickets.filter(t => t.status === "open").length },
-  { value: "pending", label: "Pendentes", count: mockTickets.filter(t => t.status === "pending").length },
-  { value: "closed", label: "Fechados", count: mockTickets.filter(t => t.status === "closed").length },
-]
+import { useTickets } from "@/contexts/AppContext"
+import { useApp } from "@/contexts/AppContext"
 
 export function TicketsContent() {
   const [searchQuery, setSearchQuery] = useState("")
   const [statusFilter, setStatusFilter] = useState("all")
-  const [filteredTickets, setFilteredTickets] = useState(mockTickets)
+  const [filteredTickets, setFilteredTickets] = useState<any[]>([])
+  
+  const { tickets, loadTickets } = useTickets()
+  const { state } = useApp()
+
+  // Garantir que tickets seja sempre um array
+  const safeTickets = Array.isArray(tickets) ? tickets : []
+
+  useEffect(() => {
+    // Carregar tickets ao montar o componente apenas se não estiver carregando e não houver tickets
+    if (!state.loading.tickets && safeTickets.length === 0) {
+      loadTickets()
+    }
+  }, [loadTickets, state.loading.tickets, safeTickets.length])
+
+  useEffect(() => {
+    // Filtrar tickets quando tickets ou filtros mudarem
+    filterTickets(searchQuery, statusFilter)
+  }, [safeTickets, searchQuery, statusFilter])
 
   const handleSearch = (query: string) => {
     setSearchQuery(query)
@@ -79,7 +53,7 @@ export function TicketsContent() {
   }
 
   const filterTickets = (query: string, status: string) => {
-    let filtered = mockTickets
+    let filtered = safeTickets
 
     if (status !== "all") {
       filtered = filtered.filter(ticket => ticket.status === status)
@@ -87,9 +61,9 @@ export function TicketsContent() {
 
     if (query) {
       filtered = filtered.filter(ticket =>
-        ticket.title.toLowerCase().includes(query.toLowerCase()) ||
-        ticket.customer.toLowerCase().includes(query.toLowerCase()) ||
-        ticket.id.includes(query)
+        ticket.title?.toLowerCase().includes(query.toLowerCase()) ||
+        ticket.assignedTo?.name?.toLowerCase().includes(query.toLowerCase()) ||
+        ticket.id?.toString().includes(query)
       )
     }
 
@@ -105,13 +79,55 @@ export function TicketsContent() {
     }
   }
 
-  const getSLABadgeVariant = (sla: string) => {
-    switch (sla) {
-      case "normal": return "sla_normal"
-      case "warning": return "sla_warning"
-      case "critical": return "sla_critical"
+  const getPriorityBadgeVariant = (priority: string) => {
+    switch (priority) {
+      case "urgent": return "destructive"
+      case "high": return "sla_warning"
+      case "medium": return "sla_normal"
+      case "low": return "default"
       default: return "default"
     }
+  }
+
+  const getStatusLabel = (status: string) => {
+    switch (status) {
+      case "open": return "Aberto"
+      case "in_progress": return "Em Progresso"
+      case "resolved": return "Resolvido"
+      case "closed": return "Fechado"
+      default: return status
+    }
+  }
+
+  // Calcular contadores para filtros
+  const statusFilters = [
+    { value: "all", label: "Todos", count: safeTickets.length },
+    { value: "open", label: "Abertos", count: safeTickets.filter(t => t.status === "open").length },
+    { value: "in_progress", label: "Em Progresso", count: safeTickets.filter(t => t.status === "in_progress").length },
+    { value: "resolved", label: "Resolvidos", count: safeTickets.filter(t => t.status === "resolved").length },
+    { value: "closed", label: "Fechados", count: safeTickets.filter(t => t.status === "closed").length },
+  ]
+
+  if (state.loading.tickets) {
+    return (
+      <div className="p-6 space-y-6">
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl font-bold text-foreground">Tickets</h1>
+            <p className="text-muted-foreground mt-1">
+              Gerencie todos os tickets de atendimento
+            </p>
+          </div>
+        </div>
+        
+        <div className="flex items-center justify-center py-12">
+          <div className="text-center">
+            <Loader2 className="h-8 w-8 animate-spin text-brand mx-auto mb-4" />
+            <p className="text-muted-foreground">Carregando tickets...</p>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -202,31 +218,29 @@ export function TicketsContent() {
                         #{ticket.id}
                       </Link>
                       <Badge variant={getStatusBadgeVariant(ticket.status)}>
-                        {ticket.status === "open" && "Aberto"}
-                        {ticket.status === "pending" && "Pendente"}
-                        {ticket.status === "closed" && "Fechado"}
+                        {getStatusLabel(ticket.status)}
                       </Badge>
-                      <Badge variant={getSLABadgeVariant(ticket.sla)}>
-                        {ticket.slaTime}
+                      <Badge variant={getPriorityBadgeVariant(ticket.priority)}>
+                        {ticket.priority === 'urgent' ? 'Urgente' : ticket.priority === 'high' ? 'Alta' : ticket.priority === 'medium' ? 'Média' : 'Baixa'}
                       </Badge>
                     </div>
                     
                     <h3 className="text-base font-medium text-foreground mb-2">
-                      {ticket.title}
+                      {ticket.title || "Sem título"}
                     </h3>
                     
                     <div className="flex items-center gap-4 text-sm text-muted-foreground">
                       <div className="flex items-center gap-1">
                         <User className="h-4 w-4" />
-                        {ticket.customer}
+                        {ticket.assignedTo?.name || "Cliente"}
                       </div>
                       <div className="flex items-center gap-1">
                         <MessageSquare className="h-4 w-4" />
-                        {ticket.messages} mensagens
+                        {ticket.tags?.length || 0} tags
                       </div>
                       <div className="flex items-center gap-1">
                         <Clock className="h-4 w-4" />
-                        {ticket.lastMessage}
+                        {ticket.updatedAt ? new Date(ticket.updatedAt).toLocaleString('pt-BR') : "N/A"}
                       </div>
                     </div>
                   </div>
@@ -234,14 +248,16 @@ export function TicketsContent() {
                   <div className="flex flex-col items-end gap-2 ml-4">
                     <div className="text-right">
                       <p className="text-sm text-muted-foreground">Atendente</p>
-                      <p className="text-sm font-medium text-foreground">{ticket.agent}</p>
+                      <p className="text-sm font-medium text-foreground">
+                        {ticket.assignedTo?.name || "Não atribuído"}
+                      </p>
                     </div>
                     
-                    <Button variant="outline" size="sm" asChild>
-                      <Link href={`/tickets/${ticket.id}`}>
+                    <Link href={`/tickets/${ticket.id}`}>
+                      <Button variant="outline" size="sm">
                         Ver Detalhes
-                      </Link>
-                    </Button>
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </CardContent>

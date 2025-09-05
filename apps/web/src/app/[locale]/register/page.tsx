@@ -343,7 +343,7 @@ export default function RegisterPage() {
 
         {/* Footer */}
         <div className="mt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; 2024 AtendeChat. Todos os direitos reservados.</p>
+          <p>&copy; 2024 Chatbot. Todos os direitos reservados.</p>
         </div>
       </div>
     </div>

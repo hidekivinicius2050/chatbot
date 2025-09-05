@@ -15,11 +15,11 @@ import { TicketsService } from './tickets.service';
 import { CreateTicketDto } from './dto/create-ticket.dto';
 import { UpdateTicketDto } from './dto/update-ticket.dto';
 import { QueryTicketsDto } from './dto/query-tickets.dto';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { DevAuthGuard } from '../auth/guards/dev-auth.guard';
 
 @ApiTags('Tickets')
 @Controller('tickets')
-@UseGuards(JwtAuthGuard)
+@UseGuards(DevAuthGuard)
 @ApiBearerAuth()
 export class TicketsController {
   constructor(private readonly ticketsService: TicketsService) {}
@@ -28,11 +28,12 @@ export class TicketsController {
   @ApiOperation({ summary: 'Criar novo ticket' })
   @ApiResponse({ status: 201, description: 'Ticket criado com sucesso' })
   @ApiResponse({ status: 400, description: 'Dados inválidos' })
-  @ApiResponse({ status: 404, description: 'Contato não encontrado' })
-  create(@Body() createTicketDto: CreateTicketDto, @Request() req: any) {
+  create(
+    @Body() createTicketDto: any,
+    @Request() req: any,
+  ) {
     return this.ticketsService.create(
       createTicketDto,
-      req.user.id,
       req.user.companyId,
     );
   }

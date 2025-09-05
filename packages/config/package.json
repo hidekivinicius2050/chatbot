@@ -1,7 +1,7 @@
 {
-  "name": "@atendechat/config",
+  "name": "@chatbot/config",
   "version": "1.0.0",
-  "description": "Configurações compartilhadas para Atendechat 2.0",
+  "description": "Configurações compartilhadas para ChatBot 2.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

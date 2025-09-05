@@ -64,7 +64,7 @@ export default function LoginPage() {
               <Lock className="h-6 w-6 text-brand" />
             </div>
             <CardTitle className="text-2xl font-bold">
-              Bem-vindo ao AtendeChat
+              Bem-vindo ao Chatbot
             </CardTitle>
             <p className="text-muted-foreground">
               Faça login para acessar sua conta
@@ -178,7 +178,7 @@ export default function LoginPage() {
 
         {/* Footer */}
         <div className="mt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; 2024 AtendeChat. Todos os direitos reservados.</p>
+          <p>&copy; 2024 Chatbot. Todos os direitos reservados.</p>
         </div>
       </div>
     </div>

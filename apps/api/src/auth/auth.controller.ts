@@ -1,154 +1,125 @@
-import { Controller, Post, Body, HttpCode, HttpStatus, UseGuards, Get, Request, Param, Query, Res } from '@nestjs/common';
-import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth } from '@nestjs/swagger';
+import {
+  Controller,
+  Post,
+  Body,
+  Get,
+  UseGuards,
+  Request,
+  HttpCode,
+  HttpStatus,
+} from '@nestjs/common';
+import { DevAuthGuard } from './guards/dev-auth.guard';
+import { RolesGuard } from './guards/roles.guard';
+import { Roles } from './guards/roles.guard';
+import { ApiTags, ApiBearerAuth, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { AuthService } from './auth.service';
-import { OidcService } from './oidc.service';
 import { LoginDto } from './dto/login.dto';
-import { RefreshDto } from './dto/refresh.dto';
-import { LogoutDto } from './dto/logout.dto';
-import { ForgotPasswordDto } from './dto/forgot-password.dto';
-import { ResetPasswordDto } from './dto/reset-password.dto';
-import { InviteUserDto } from './dto/invite-user.dto';
-import { AcceptInviteDto } from './dto/accept-invite.dto';
-import { JwtAuthGuard } from './guards/jwt-auth.guard';
-import { RolesGuard, Roles } from './guards/roles.guard';
-import type { Response } from 'express';
+// import { RefreshTokenDto } from './dto/refresh-token.dto';
+// import { ForgotPasswordDto } from './dto/forgot-password.dto';
+// import { ResetPasswordDto } from './dto/reset-password.dto';
+// import { InviteUserDto } from './dto/invite-user.dto';
+// import { AcceptInviteDto } from './dto/accept-invite.dto';
 
-@ApiTags('Auth')
+@ApiTags('auth')
 @Controller('auth')
 export class AuthController {
-  constructor(
-    private readonly authService: AuthService,
-    private readonly oidcService: OidcService,
-  ) {}
+  constructor(private readonly authService: AuthService) {}
 
   @Post('login')
   @HttpCode(HttpStatus.OK)
-  @ApiOperation({ summary: 'Login do usuário' })
-  @ApiResponse({ 
-    status: 200, 
-    description: 'Login realizado com sucesso',
-    schema: {
-      type: 'object',
-      properties: {
-        accessToken: { type: 'string' },
-        refreshToken: { type: 'string' },
-        user: {
-          type: 'object',
-          properties: {
-            id: { type: 'string' },
-            name: { type: 'string' },
-            email: { type: 'string' },
-            role: { type: 'string' },
-            companyId: { type: 'string' },
-          },
-        },
-      },
-    }
-  })
+  @ApiOperation({ summary: 'Fazer login' })
+  @ApiResponse({ status: 200, description: 'Login realizado com sucesso' })
   @ApiResponse({ status: 401, description: 'Credenciais inválidas' })
-  @ApiResponse({ status: 429, description: 'Muitas tentativas de login' })
   async login(@Body() loginDto: LoginDto) {
     return this.authService.login(loginDto);
   }
 
   @Post('refresh')
   @HttpCode(HttpStatus.OK)
-  @ApiOperation({ summary: 'Renovar tokens de acesso' })
-  @ApiResponse({ 
-    status: 200, 
-    description: 'Tokens renovados com sucesso',
-    schema: {
-      type: 'object',
-      properties: {
-        accessToken: { type: 'string' },
-        refreshToken: { type: 'string' },
-      },
-    }
-  })
-  @ApiResponse({ status: 401, description: 'Refresh token inválido' })
-  async refresh(@Body() refreshDto: RefreshDto) {
-    return this.authService.refresh(refreshDto);
+  @ApiOperation({ summary: 'Renovar token' })
+  @ApiResponse({ status: 200, description: 'Token renovado com sucesso' })
+  @ApiResponse({ status: 401, description: 'Token inválido' })
+  async refresh(@Body() refreshTokenDto: any) {
+    return this.authService.refresh(refreshTokenDto);
   }
 
   @Post('logout')
-  @HttpCode(HttpStatus.NO_CONTENT)
-  @ApiOperation({ summary: 'Logout do usuário' })
-  @ApiResponse({ status: 204, description: 'Logout realizado com sucesso' })
-  async logout(@Body() logoutDto: LogoutDto): Promise<void> {
-    return this.authService.logout(logoutDto);
+  @UseGuards(DevAuthGuard)
+  @ApiBearerAuth()
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({ summary: 'Fazer logout' })
+  @ApiResponse({ status: 200, description: 'Logout realizado com sucesso' })
+  async logout(@Request() req: any) {
+    return this.authService.logout(req.user.id);
   }
 
   @Get('profile')
-  @UseGuards(JwtAuthGuard)
+  @UseGuards(DevAuthGuard)
   @ApiBearerAuth()
-  @ApiOperation({ summary: 'Obter perfil do usuário logado' })
-  @ApiResponse({ status: 200, description: 'Perfil do usuário' })
+  @ApiOperation({ summary: 'Obter perfil do usuário' })
+  @ApiResponse({ status: 200, description: 'Perfil obtido com sucesso' })
   @ApiResponse({ status: 401, description: 'Não autorizado' })
   async getProfile(@Request() req: any) {
     return req.user;
   }
 
   @Get('admin/ping')
-  @UseGuards(JwtAuthGuard, RolesGuard)
+  @UseGuards(DevAuthGuard, RolesGuard)
   @Roles('ADMIN', 'OWNER')
   @ApiBearerAuth()
-  @ApiOperation({ summary: 'Rota de exemplo só para ADMIN/OWNER' })
-  @ApiResponse({ status: 200, description: 'Pong! Acesso permitido' })
-  @ApiResponse({ status: 403, description: 'Acesso negado - role insuficiente' })
-  async adminPing() {
-    return { message: 'Pong! Acesso ADMIN permitido', timestamp: new Date().toISOString() };
+  @ApiOperation({ summary: 'Verificar acesso de administrador' })
+  @ApiResponse({ status: 200, description: 'Acesso confirmado' })
+  @ApiResponse({ status: 403, description: 'Acesso negado' })
+  async adminPing(@Request() req: any) {
+    return { message: 'Admin access confirmed', user: req.user };
   }
 
   @Post('forgot')
-  @HttpCode(HttpStatus.OK)
-  @ApiOperation({ summary: 'Solicitar reset de senha' })
-  @ApiResponse({ status: 200, description: 'Email de reset enviado (se existir)' })
-  async forgotPassword(@Body() forgotPasswordDto: ForgotPasswordDto): Promise<void> {
+  @ApiOperation({ summary: 'Solicitar redefinição de senha' })
+  @ApiResponse({ status: 200, description: 'Email de redefinição enviado' })
+  @ApiResponse({ status: 400, description: 'Email inválido' })
+  async forgotPassword(@Body() forgotPasswordDto: any) {
     return this.authService.forgotPassword(forgotPasswordDto);
   }
 
   @Post('reset')
-  @HttpCode(HttpStatus.OK)
-  @ApiOperation({ summary: 'Redefinir senha com token' })
+  @ApiOperation({ summary: 'Redefinir senha' })
   @ApiResponse({ status: 200, description: 'Senha redefinida com sucesso' })
-  @ApiResponse({ status: 400, description: 'Token inválido ou expirado' })
-  async resetPassword(@Body() resetPasswordDto: ResetPasswordDto): Promise<void> {
+  @ApiResponse({ status: 400, description: 'Token inválido' })
+  async resetPassword(@Body() resetPasswordDto: any) {
     return this.authService.resetPassword(resetPasswordDto);
   }
 
   @Post('invite')
-  @UseGuards(JwtAuthGuard, RolesGuard)
+  @UseGuards(DevAuthGuard, RolesGuard)
   @Roles('ADMIN', 'OWNER')
   @ApiBearerAuth()
-  @ApiOperation({ summary: 'Convidar usuário para a empresa' })
-  @ApiResponse({ status: 200, description: 'Convite enviado com sucesso' })
-  @ApiResponse({ status: 400, description: 'Usuário já existe ou convite já enviado' })
-  async inviteUser(@Body() inviteUserDto: InviteUserDto, @Request() req: any): Promise<void> {
+  @ApiOperation({ summary: 'Convidar usuário' })
+  @ApiResponse({ status: 201, description: 'Convite enviado com sucesso' })
+  @ApiResponse({ status: 400, description: 'Dados inválidos' })
+  async inviteUser(@Body() inviteUserDto: any, @Request() req: any) {
     return this.authService.inviteUser(inviteUserDto, req.user);
   }
 
   @Post('accept-invite')
-  @HttpCode(HttpStatus.OK)
-  @ApiOperation({ summary: 'Aceitar convite e criar conta' })
-  @ApiResponse({ status: 200, description: 'Convite aceito e conta criada' })
-  @ApiResponse({ status: 400, description: 'Token inválido ou expirado' })
-  async acceptInvite(@Body() acceptInviteDto: AcceptInviteDto) {
+  @ApiOperation({ summary: 'Aceitar convite' })
+  @ApiResponse({ status: 200, description: 'Convite aceito com sucesso' })
+  @ApiResponse({ status: 400, description: 'Token inválido' })
+  async acceptInvite(@Body() acceptInviteDto: any) {
     return this.authService.acceptInvite(acceptInviteDto);
   }
 
   @Get('oidc/:provider/login')
-  @ApiOperation({ summary: 'Iniciar login SSO/OIDC' })
-  @ApiResponse({ status: 302, description: 'Redirecionamento para provider OIDC' })
-  async oidcLogin(@Param('provider') provider: string, @Res() res: Response, @Query('state') state?: string) {
-    const loginUrl = this.oidcService.generateLoginUrl(provider, state);
-    res.redirect(loginUrl);
+  @ApiOperation({ summary: 'Iniciar login OIDC' })
+  @ApiResponse({ status: 200, description: 'Redirecionamento para provedor' })
+  async oidcLogin(@Request() req: any) {
+    return { message: 'OIDC login not implemented' };
   }
 
   @Get('oidc/callback')
   @ApiOperation({ summary: 'Callback OIDC' })
-  @ApiResponse({ status: 200, description: 'Login OIDC realizado com sucesso' })
-  @ApiResponse({ status: 401, description: 'Falha na autenticação OIDC' })
-  async oidcCallback(@Query('code') code: string, @Query('state') state?: string) {
-    return this.oidcService.handleCallback('google', code, state); // TODO: detectar provider do state
+  @ApiResponse({ status: 200, description: 'Login OIDC realizado' })
+  async oidcCallback(@Request() req: any) {
+    return { message: 'OIDC callback not implemented' };
   }
 }

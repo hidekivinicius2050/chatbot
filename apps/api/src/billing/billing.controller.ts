@@ -5,93 +5,78 @@ import {
   Body,
   UseGuards,
   Request,
-  HttpCode,
-  HttpStatus,
 } from '@nestjs/common';
-import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { DevAuthGuard } from '../auth/guards/dev-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
-// import { Roles } from '../auth/decorators/roles.decorator';
-import { Role } from '@prisma/client';
+import { Roles } from '../auth/guards/roles.guard';
+import { ApiTags, ApiBearerAuth, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { BillingService } from './billing.service';
-import { EntitlementsService } from './entitlements.service';
-import { CheckoutDto, MockUpgradeDto } from './dto/billing.dto';
 
-@ApiTags('Billing')
-@Controller('api/v1/billing')
-@UseGuards(JwtAuthGuard, RolesGuard)
+@ApiTags('billing')
+@Controller('billing')
+@UseGuards(DevAuthGuard, RolesGuard)
+@ApiBearerAuth()
 export class BillingController {
-  constructor(
-    private readonly billingService: BillingService,
-    private readonly entitlementsService: EntitlementsService,
-  ) {}
+  constructor(private readonly billingService: BillingService) {}
 
   @Get('entitlements')
-  @ApiOperation({ summary: 'Get current entitlements' })
-  @ApiResponse({ status: 200, description: 'Entitlements retrieved successfully' })
-  async getEntitlements(@Request() req: any) {
-    const companyId = req.companyId;
-    return this.entitlementsService.get(companyId);
+  @ApiOperation({ summary: 'Obter recursos disponíveis' })
+  @ApiResponse({ status: 200, description: 'Recursos obtidos' })
+  getEntitlements(@Request() req: any) {
+    return { message: 'Entitlements not implemented yet' };
   }
 
   @Get('usage')
-  @ApiOperation({ summary: 'Get current usage' })
-  @ApiResponse({ status: 200, description: 'Usage data retrieved successfully' })
-  async getUsage(@Request() req: any) {
-    const companyId = req.companyId;
-    return this.entitlementsService.getUsage(companyId);
+  @ApiOperation({ summary: 'Obter uso atual' })
+  @ApiResponse({ status: 200, description: 'Uso obtido' })
+  getUsage(@Request() req: any) {
+    return { message: 'Usage not implemented yet' };
   }
 
   @Get('subscription')
-  @ApiOperation({ summary: 'Get current subscription' })
-  @ApiResponse({ status: 200, description: 'Subscription retrieved successfully' })
-  async getSubscription(@Request() req: any) {
-    const companyId = req.companyId;
-    return this.billingService.getSubscription(companyId);
+  @ApiOperation({ summary: 'Obter detalhes da assinatura' })
+  @ApiResponse({ status: 200, description: 'Assinatura obtida' })
+  getSubscription(@Request() req: any) {
+    return this.billingService.getSubscription(req.user.companyId);
   }
 
   @Get('invoices')
-  @ApiOperation({ summary: 'Get invoices' })
-  @ApiResponse({ status: 200, description: 'Invoices retrieved successfully' })
-  async getInvoices(@Request() req: any) {
-    const companyId = req.companyId;
-    return this.billingService.getInvoices(companyId);
+  @ApiOperation({ summary: 'Listar faturas' })
+  @ApiResponse({ status: 200, description: 'Lista de faturas' })
+  getInvoices(@Request() req: any) {
+    return this.billingService.getInvoices(req.user.companyId);
   }
 
   @Post('checkout')
-  // @Roles(Role.OWNER, Role.ADMIN)
-  @ApiOperation({ summary: 'Create checkout session' })
-  @ApiResponse({ status: 201, description: 'Checkout session created successfully' })
-  async createCheckout(@Request() req: any, @Body() checkoutDto: CheckoutDto) {
-    const companyId = req.companyId;
-    return this.billingService.createCheckoutSession(companyId, checkoutDto);
+  @Roles('ADMIN', 'OWNER')
+  @ApiOperation({ summary: 'Criar checkout' })
+  @ApiResponse({ status: 201, description: 'Checkout criado' })
+  @ApiResponse({ status: 400, description: 'Dados inválidos' })
+  createCheckout(@Body() checkoutData: any, @Request() req: any) {
+    return this.billingService.createCheckoutSession(req.user.companyId, checkoutData);
   }
 
   @Get('portal')
-  // @Roles(Role.OWNER, Role.ADMIN)
-  @ApiOperation({ summary: 'Create customer portal session' })
-  @ApiResponse({ status: 200, description: 'Portal session created successfully' })
-  async createPortalSession(@Request() req: any) {
-    const companyId = req.companyId;
-    return this.billingService.createCustomerPortalSession(companyId);
+  @Roles('ADMIN', 'OWNER')
+  @ApiOperation({ summary: 'Obter URL do portal de billing' })
+  @ApiResponse({ status: 200, description: 'URL do portal obtida' })
+  getPortalUrl(@Request() req: any) {
+    return this.billingService.createCustomerPortalSession(req.user.companyId);
   }
 
   @Post('mock/upgrade')
-  // @Roles(Role.OWNER, Role.ADMIN)
-  @ApiOperation({ summary: 'Mock upgrade subscription' })
-  @ApiResponse({ status: 201, description: 'Subscription upgraded successfully' })
-  async mockUpgrade(@Request() req: any, @Body() upgradeDto: MockUpgradeDto) {
-    const companyId = req.companyId;
-    return this.billingService.mockUpgrade(companyId, upgradeDto);
+  @Roles('ADMIN', 'OWNER')
+  @ApiOperation({ summary: 'Simular upgrade de plano' })
+  @ApiResponse({ status: 200, description: 'Upgrade simulado' })
+  mockUpgrade(@Body() upgradeData: any, @Request() req: any) {
+    return this.billingService.mockUpgrade(req.user.companyId, upgradeData);
   }
 
   @Post('mock/cancel')
-  // @Roles(Role.OWNER, Role.ADMIN)
-  @HttpCode(HttpStatus.OK)
-  @ApiOperation({ summary: 'Mock cancel subscription' })
-  @ApiResponse({ status: 200, description: 'Subscription canceled successfully' })
-  async mockCancel(@Request() req: any) {
-    const companyId = req.companyId;
-    return this.billingService.mockCancel(companyId);
+  @Roles('ADMIN', 'OWNER')
+  @ApiOperation({ summary: 'Simular cancelamento de plano' })
+  @ApiResponse({ status: 200, description: 'Cancelamento simulado' })
+  mockCancel(@Request() req: any) {
+    return this.billingService.mockCancel(req.user.companyId);
   }
 }

@@ -21,7 +21,7 @@ export function StyleguideContent() {
       <div className="text-center">
         <h1 className="text-4xl font-bold text-foreground mb-2">Styleguide</h1>
         <p className="text-muted-foreground text-lg">
-          Sistema de Design AtendeChat 2.0 - Tema "Midnight Violet"
+          Sistema de Design Chatbot 2.0 - Tema "Midnight Blue"
         </p>
       </div>
 

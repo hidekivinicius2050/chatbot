@@ -5,6 +5,8 @@ import { ConfigService } from '@nestjs/config';
 import { ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { SecurityMiddleware } from './common/security/security.middleware';
+import { IoAdapter } from '@nestjs/platform-socket.io';
+import { RateLimitInterceptor } from './common/interceptors/rate-limit.interceptor';
 import pino from 'pino';
 
 async function bootstrap() {
@@ -37,8 +39,8 @@ async function bootstrap() {
 
   // Configuração do Swagger
   const config = new DocumentBuilder()
-    .setTitle('Atendechat 2.0 API')
-    .setDescription('API para o sistema de atendimento Atendechat 2.0')
+                  .setTitle('ChatBot 2.0 API')
+                  .setDescription('API para o sistema de atendimento ChatBot 2.0')
     .setVersion('1.0')
     .addBearerAuth()
     .build();
@@ -57,6 +59,12 @@ async function bootstrap() {
   app.use(SecurityMiddleware.applySecurityHeaders());
   app.use(SecurityMiddleware.validatePayloadSize);
   app.use(SecurityMiddleware.sanitizeInput);
+
+  // Rate limiting para evitar spam
+  app.useGlobalInterceptors(new RateLimitInterceptor());
+
+  // Configuração do Socket.IO
+  app.useWebSocketAdapter(new IoAdapter(app));
 
   // Prefixo global da API
   app.setGlobalPrefix('api/v1');

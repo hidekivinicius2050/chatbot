@@ -1,7 +1,7 @@
 {
-  "name": "atendechat-2.0",
+  "name": "chatbot-2.0",
   "version": "1.0.0",
-  "description": "SaaS Atendechat 2.0 - Monorepo com arquitetura hexagonal",
+  "description": "SaaS ChatBot 2.0 - Monorepo com arquitetura hexagonal",
   "private": true,
   "workspaces": [
     "apps/*",

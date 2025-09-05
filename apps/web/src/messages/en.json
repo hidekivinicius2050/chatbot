@@ -1,0 +1,100 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "search": "Search",
+    "filter": "Filter",
+    "actions": "Actions"
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "email": "Email",
+    "password": "Password",
+    "forgotPassword": "Forgot Password",
+    "resetPassword": "Reset Password",
+    "signUp": "Sign Up",
+    "welcome": "Welcome to Atendechat"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "totalTickets": "Total Tickets",
+    "openTickets": "Open Tickets",
+    "resolvedTickets": "Resolved Tickets",
+    "totalMessages": "Total Messages",
+    "activeChats": "Active Chats",
+    "performance": "Performance",
+    "recentActivity": "Recent Activity"
+  },
+  "tickets": {
+    "title": "Tickets",
+    "newTicket": "New Ticket",
+    "status": "Status",
+    "priority": "Priority",
+    "assignedTo": "Assigned To",
+    "createdAt": "Created At",
+    "updatedAt": "Updated At",
+    "customer": "Customer",
+    "subject": "Subject",
+    "description": "Description"
+  },
+  "channels": {
+    "title": "Channels",
+    "whatsapp": "WhatsApp",
+    "telegram": "Telegram",
+    "discord": "Discord",
+    "email": "Email",
+    "web": "Web",
+    "status": "Status",
+    "connected": "Connected",
+    "disconnected": "Disconnected"
+  },
+  "campaigns": {
+    "title": "Campaigns",
+    "newCampaign": "New Campaign",
+    "name": "Name",
+    "type": "Type",
+    "status": "Status",
+    "targets": "Targets",
+    "sent": "Sent",
+    "failed": "Failed",
+    "scheduled": "Scheduled"
+  },
+  "automations": {
+    "title": "Automations",
+    "newAutomation": "New Automation",
+    "trigger": "Trigger",
+    "action": "Action",
+    "conditions": "Conditions",
+    "active": "Active",
+    "inactive": "Inactive"
+  },
+  "reports": {
+    "title": "Reports",
+    "performance": "Performance",
+    "analytics": "Analytics",
+    "export": "Export",
+    "period": "Period",
+    "today": "Today",
+    "week": "Week",
+    "month": "Month",
+    "year": "Year"
+  },
+  "settings": {
+    "title": "Settings",
+    "profile": "Profile",
+    "company": "Company",
+    "users": "Users",
+    "integrations": "Integrations",
+    "billing": "Billing",
+    "security": "Security"
+  }
+}
+
+

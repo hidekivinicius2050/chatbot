@@ -51,7 +51,7 @@ export function LoginForm() {
       const result = await response.json()
       
       // Armazenar token
-      localStorage.setItem("token", result.access_token)
+      localStorage.setItem("authToken", result.access_token)
       
       // Redirecionar para dashboard (implementar depois)
       console.log("Login realizado com sucesso:", result)

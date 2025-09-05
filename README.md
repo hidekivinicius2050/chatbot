@@ -1,4 +1,4 @@
-# Atendechat 2.0 - Sistema de Chat Multitenancy
+# ChatBot 2.0 - Sistema de Chat Multitenancy
 
 Sistema de chat empresarial com arquitetura hexagonal, multitenancy, autenticação robusta e suporte a múltiplos provedores de WhatsApp.
 

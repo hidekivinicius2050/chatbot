@@ -1,4 +1,4 @@
-import { Message, Channel, Contact } from '@atendechat/core';
+import { Message, Channel, Contact } from '@chatbot/core';
 
 // Interface base para todos os providers de mensageria
 export interface MessagingProvider {
@@ -203,6 +203,11 @@ export class BaileysProvider implements MessagingProvider {
   private config?: BaileysConfig;
   private isConnected = false;
   private qrCode?: string;
+  private logger?: any;
+
+  constructor(logger?: any) {
+    this.logger = logger;
+  }
   
   async connect(config: BaileysConfig): Promise<void> {
     this.config = config;
@@ -256,11 +261,23 @@ export class BaileysProvider implements MessagingProvider {
     if (!this.config) {
       throw new Error('Configuração não encontrada');
     }
-    
-    // Simulação de geração de QR code
-    this.qrCode = `data:image/png;base64,QR_CODE_SIMULADO_${Date.now()}`;
-    
-    return this.qrCode;
+
+    try {
+      // Implementação temporária mock para testar
+      // TODO: Implementar com Baileys real quando dependências estiverem corretas
+      const mockQRCode = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==`;
+      
+      // Simula delay de geração
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      this.qrCode = mockQRCode;
+      this.logger?.log('QR Code mock gerado para teste');
+      
+      return mockQRCode;
+      
+    } catch (error) {
+      throw new Error(`Erro ao gerar QR code: ${error instanceof Error ? error.message : 'Erro desconhecido'}`);
+    }
   }
   
   async isNumberConnected(phoneNumber: string): Promise<boolean> {
@@ -270,18 +287,18 @@ export class BaileysProvider implements MessagingProvider {
 
 // Factory para criar providers
 export class MessagingProviderFactory {
-  static create(type: string, config: any): MessagingProvider {
+  static create(type: string, config: any, logger?: any): MessagingProvider {
     switch (type) {
-      case 'whatsapp_cloud':
+      case 'whatsapp-cloud':
         return new WhatsAppCloudProvider();
-      case 'whatsapp_baileys':
-        return new BaileysProvider();
+      case 'whatsapp-baileys':
+        return new BaileysProvider(logger);
       default:
         throw new Error(`Provider não suportado: ${type}`);
     }
   }
   
   static getSupportedTypes(): string[] {
-    return ['whatsapp_cloud', 'whatsapp_baileys'];
+    return ['whatsapp-cloud', 'whatsapp-baileys'];
   }
 }

@@ -13,7 +13,7 @@ import {
   HttpStatus,
 } from '@nestjs/common';
 import { ApiTags, ApiBearerAuth, ApiOperation, ApiResponse } from '@nestjs/swagger';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { DevAuthGuard } from '../auth/guards/dev-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/guards/roles.guard';
 
@@ -21,13 +21,17 @@ import { ChannelsService } from './channels.service';
 import { CreateChannelDto } from './dto/create-channel.dto';
 import { UpdateChannelDto } from './dto/update-channel.dto';
 import { QueryChannelsDto } from './dto/query-channels.dto';
+import { MessagingService } from '../messaging/messaging.service';
 
 @ApiTags('channels')
-@Controller('api/v1/channels')
-@UseGuards(JwtAuthGuard, RolesGuard)
+@Controller('channels')
+@UseGuards(DevAuthGuard, RolesGuard)
 @ApiBearerAuth()
 export class ChannelsController {
-  constructor(private readonly channelsService: ChannelsService) {}
+  constructor(
+    private readonly channelsService: ChannelsService,
+    private readonly messagingService: MessagingService
+  ) {}
 
   @Post()
   @Roles('ADMIN', 'OWNER')
@@ -65,12 +69,22 @@ export class ChannelsController {
       throw new Error('QR code só está disponível para canais Baileys');
     }
 
-    // TODO: Implementar geração real de QR code via Baileys
+    // Usa o MessagingService injetado para gerar QR code real
+    const qrCode = await this.messagingService.generateQRCode(id, req.user.companyId);
+    
     return {
-      qrCode: 'data:image/png;base64,QR_CODE_SIMULADO',
+      qrCode,
       channelId: id,
       type: 'baileys',
     };
+  }
+
+  @Get(':id/stats')
+  @ApiOperation({ summary: 'Obter estatísticas do canal' })
+  @ApiResponse({ status: 200, description: 'Estatísticas do canal' })
+  @ApiResponse({ status: 404, description: 'Canal não encontrado' })
+  async getChannelStats(@Param('id') id: string, @Request() req: any) {
+    return this.channelsService.getChannelStats(id, req.user.companyId);
   }
 
   @Patch(':id')

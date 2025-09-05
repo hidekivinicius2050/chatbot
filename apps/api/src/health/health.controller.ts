@@ -1,33 +1,16 @@
-import { Controller, Get } from "@nestjs/common";
-import { PrismaService } from "../prisma/prisma.service";
+import { Controller, Get } from '@nestjs/common';
+import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
+import { HealthService } from './health.service';
 
-@Controller("health")
+@ApiTags('health')
+@Controller('health')
 export class HealthController {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly healthService: HealthService) {}
 
   @Get()
-    async get() {
-    const env = process.env.NODE_ENV || "development";
-
-    // DB status
-    let dbOk = false;
-    try {
-      await this.prisma.$queryRaw`SELECT 1`;
-      dbOk = true;
-    } catch {}
-
-    // Redis status (simplificado por enquanto)
-    let redisOk = false;
-    if (process.env.REDIS_URL) {
-      redisOk = true; // Assumimos que está funcionando se a URL existe
-    }
-    
-    return {
-      up: true,
-      environment: env,
-      db: dbOk,
-      redis: redisOk,
-      timestamp: new Date().toISOString(),
-    };
+  @ApiOperation({ summary: 'Verificar saúde da aplicação' })
+  @ApiResponse({ status: 200, description: 'Status de saúde obtido' })
+  check() {
+    return this.healthService.check();
   }
 }

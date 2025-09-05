@@ -149,6 +149,11 @@ export class MessagingService {
 
       const provider = this.createProvider(channel);
       
+      // Configura o provider com os dados do canal
+      if (provider.connect && channel.config) {
+        await provider.connect(channel.config);
+      }
+      
       if (provider.generateQRCode) {
         const qrCode = await provider.generateQRCode();
         this.logger.log(`QR code gerado para canal: ${channelId}`);
@@ -275,7 +280,7 @@ export class MessagingService {
    */
   private createProvider(channel: any): MessagingProvider {
     try {
-      const provider = MessagingProviderFactory.create(channel.type, channel.config);
+      const provider = MessagingProviderFactory.create(channel.type, channel.config, this.logger);
       this.logger.log(`Provider criado: ${channel.type}`);
       return provider;
     } catch (error) {

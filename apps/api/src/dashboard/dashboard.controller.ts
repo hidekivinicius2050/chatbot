@@ -1,10 +1,10 @@
 import { Controller, Get, UseGuards } from '@nestjs/common';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { DevAuthGuard } from '../auth/guards/dev-auth.guard';
 import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth } from '@nestjs/swagger';
 
 @ApiTags('Dashboard')
 @Controller('dashboard')
-@UseGuards(JwtAuthGuard)
+@UseGuards(DevAuthGuard)
 @ApiBearerAuth()
 export class DashboardController {
   @Get('stats')
